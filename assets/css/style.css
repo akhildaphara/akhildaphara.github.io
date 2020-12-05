@@ -95,8 +95,9 @@ html {
   height: 100vh;
   max-width: 100%;
   max-height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
+
 .visible-xxs {
   display: none;
 }
@@ -262,20 +263,26 @@ html {
   height: 280px;
   margin-bottom: 30px;
   position: relative;
+  filter: grayscale(0%);
+}
+.portfolio-item:hover {
+  filter: grayscale(100%);
 }
 .section-portfolio .col-md-4:nth-last-child(-n + 3) .portfolio-item {
   margin-bottom: 0;
 }
 .portfolio-item-info {
   position: absolute;
-  top: 50%;
+  bottom: 0%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 50%);
 }
 .portfolio-item-info h4 {
-  margin: 0 0 20px;
-  font-weight: 700;
-  color: #fff;
+  margin: 0 0 0px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #000;
+  text-shadow: 1px 0 0 #fff, 0 -1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff;
 }
 .section-counters {
   background: url(../img/counters-bg.jpg) no-repeat fixed center/cover;
