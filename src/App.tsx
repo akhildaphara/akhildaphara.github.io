@@ -112,7 +112,7 @@ export default function App() {
               </div>
             </h1>
 
-            <div className="font-mono text-slate-400 text-lg md:text-xl max-w-2xl mt-8 whitespace-pre-wrap">
+            <div className="font-mono text-slate-300 text-lg md:text-xl max-w-2xl mt-8 whitespace-pre-wrap">
               <TypewriterText text={"> Software Engineer based in Boston, MA.\n> Specializing in scalable backend systems, AWS, and MCP integrations."} delay={1} />
             </div>
 
@@ -158,28 +158,28 @@ export default function App() {
             >
               <div className="font-mono">
                 <div className="text-lime-400 mb-2">May 2023 — Present</div>
-                <div className="text-slate-500 uppercase tracking-widest text-xs mb-4">Genesys, USA</div>
+                <div className="text-slate-400 uppercase tracking-widest text-xs mb-4">Genesys, USA</div>
               </div>
               <div className="space-y-6">
-                <h3 className="font-sans font-bold text-3xl uppercase tracking-tight text-slate-200 group-hover:text-cyan-400 transition-colors">
+                <h3 className="font-sans font-bold text-3xl uppercase tracking-tight text-white group-hover:text-cyan-400 transition-colors">
                   Software Engineer
                 </h3>
-                <ul className="font-mono text-slate-400 space-y-4 text-sm md:text-base">
+                <ul className="font-mono text-slate-300 space-y-4 text-sm md:text-base">
                   <li className="flex gap-4 items-start">
                     <span className="inline-block w-1.5 h-1.5 bg-lime-400/50 mt-2 shrink-0"></span>
-                    <span>Piloted <span className="text-slate-200">Cursor AI</span> to increase team productivity, successfully scaling the tool to 100% of the organization.</span>
+                    <span>Piloted <span className="text-white">Cursor AI</span> to increase team productivity, successfully scaling the tool to 100% of the organization.</span>
                   </li>
                   <li className="flex gap-4 items-start">
                     <span className="inline-block w-1.5 h-1.5 bg-lime-400/50 mt-2 shrink-0"></span>
-                    <span>Won internal hackathon prize for building a <span className="text-slate-200">Model Context Protocol (MCP) server</span> that integrated public APIs with IDEs and Amazon Bedrock.</span>
+                    <span>Won internal hackathon prize for building a <span className="text-white">Model Context Protocol (MCP) server</span> that integrated public APIs with IDEs and Amazon Bedrock.</span>
                   </li>
                   <li className="flex gap-4 items-start">
                     <span className="inline-block w-1.5 h-1.5 bg-lime-400/50 mt-2 shrink-0"></span>
-                    <span>Designed and implemented <span className="text-slate-200">AWS Step Function workflow</span> for distributed computing, reducing compute time from hours to under 18 minutes.</span>
+                    <span>Designed and implemented <span className="text-white">AWS Step Function workflow</span> for distributed computing, reducing compute time from hours to under 18 minutes.</span>
                   </li>
                   <li className="flex gap-4 items-start">
                     <span className="inline-block w-1.5 h-1.5 bg-lime-400/50 mt-2 shrink-0"></span>
-                    <span>Developed a core <span className="text-slate-200">Node.js utility library</span> adopted by multiple teams to standardize external integrations (HTTP, Database, S3).</span>
+                    <span>Developed a core <span className="text-white">Node.js utility library</span> adopted by multiple teams to standardize external integrations (HTTP, Database, S3).</span>
                   </li>
                 </ul>
                 <div className="flex flex-wrap gap-2 pt-4">
@@ -201,16 +201,16 @@ export default function App() {
             >
               <div className="font-mono">
                 <div className="text-lime-400 mb-2">May 2022 — May 2023</div>
-                <div className="text-slate-500 uppercase tracking-widest text-xs mb-4">Genesys, USA</div>
+                <div className="text-slate-400 uppercase tracking-widest text-xs mb-4">Genesys, USA</div>
               </div>
               <div className="space-y-6">
-                <h3 className="font-sans font-bold text-3xl uppercase tracking-tight text-slate-200 group-hover:text-pink-400 transition-colors">
+                <h3 className="font-sans font-bold text-3xl uppercase tracking-tight text-white group-hover:text-pink-400 transition-colors">
                   Software Engineer Intern
                 </h3>
-                <ul className="font-mono text-slate-400 space-y-4 text-sm md:text-base">
+                <ul className="font-mono text-slate-300 space-y-4 text-sm md:text-base">
                   <li className="flex gap-4 items-start">
                     <span className="inline-block w-1.5 h-1.5 bg-pink-400/50 mt-2 shrink-0"></span>
-                    <span>Led the successful migration of microservices from <span className="text-slate-200">Hystrix to Resilience4j</span>, ensuring fault tolerance without disrupting production.</span>
+                    <span>Led the successful migration of microservices from <span className="text-white">Hystrix to Resilience4j</span>, ensuring fault tolerance without disrupting production.</span>
                   </li>
                   <li className="flex gap-4 items-start">
                     <span className="inline-block w-1.5 h-1.5 bg-pink-400/50 mt-2 shrink-0"></span>
@@ -218,7 +218,7 @@ export default function App() {
                   </li>
                   <li className="flex gap-4 items-start">
                     <span className="inline-block w-1.5 h-1.5 bg-pink-400/50 mt-2 shrink-0"></span>
-                    <span>Streamlined a <span className="text-slate-200">Kotlin library</span> to accommodate new features and introduce an efficient code reuse path.</span>
+                    <span>Streamlined a <span className="text-white">Kotlin library</span> to accommodate new features and introduce an efficient code reuse path.</span>
                   </li>
                 </ul>
                 <div className="flex flex-wrap gap-2 pt-4">
@@ -240,20 +240,20 @@ export default function App() {
             >
               <div className="font-mono">
                 <div className="text-lime-400 mb-2">Mar 2021 — Jun 2021</div>
-                <div className="text-slate-500 uppercase tracking-widest text-xs mb-4">Credence Analytics, India</div>
+                <div className="text-slate-400 uppercase tracking-widest text-xs mb-4">Credence Analytics, India</div>
               </div>
               <div className="space-y-6">
-                <h3 className="font-sans font-bold text-3xl uppercase tracking-tight text-slate-200 group-hover:text-cyan-400 transition-colors">
+                <h3 className="font-sans font-bold text-3xl uppercase tracking-tight text-white group-hover:text-cyan-400 transition-colors">
                   Trainee Asst Consultant - Software
                 </h3>
-                <ul className="font-mono text-slate-400 space-y-4 text-sm md:text-base">
+                <ul className="font-mono text-slate-300 space-y-4 text-sm md:text-base">
                   <li className="flex gap-4 items-start">
                     <span className="inline-block w-1.5 h-1.5 bg-cyan-400/50 mt-2 shrink-0"></span>
-                    <span>Collaborated with the CEO in building ERP system using <span className="text-slate-200">Python, JavaScript, HTML, CSS, and SQL</span>.</span>
+                    <span>Collaborated with the CEO in building ERP system using <span className="text-white">Python, JavaScript, HTML, CSS, and SQL</span>.</span>
                   </li>
                   <li className="flex gap-4 items-start">
                     <span className="inline-block w-1.5 h-1.5 bg-cyan-400/50 mt-2 shrink-0"></span>
-                    <span>Deployed Application Monitoring System on Linux Instance using <span className="text-slate-200">Elasticsearch</span> for effortless monitoring.</span>
+                    <span>Deployed Application Monitoring System on Linux Instance using <span className="text-white">Elasticsearch</span> for effortless monitoring.</span>
                   </li>
                   <li className="flex gap-4 items-start">
                     <span className="inline-block w-1.5 h-1.5 bg-cyan-400/50 mt-2 shrink-0"></span>
@@ -291,7 +291,7 @@ export default function App() {
               <h3 className="font-sans font-bold text-2xl uppercase mb-4 text-slate-100 group-hover:text-lime-400 transition-colors">
                 Algorithm Management System
               </h3>
-              <p className="font-mono text-slate-400 text-sm mb-6 line-clamp-3">
+              <p className="font-mono text-slate-300 text-sm mb-6 line-clamp-3">
                 Created algorithm repository web application as part of grad course using Java lambda functions as backend. Hosted on AWS ecosystem (S3, API Gateway, RDS, Cognito).
               </p>
               <div className="flex flex-wrap gap-2">
@@ -316,7 +316,7 @@ export default function App() {
               <h3 className="font-sans font-bold text-2xl uppercase mb-4 text-slate-100 group-hover:text-pink-400 transition-colors">
                 CREDCLI & Parsifier
               </h3>
-              <p className="font-mono text-slate-400 text-sm mb-6 line-clamp-3">
+              <p className="font-mono text-slate-300 text-sm mb-6 line-clamp-3">
                 Created a NodeJS CLI tool to automate version control with extensive unit testing. Published "Parsifier" NPM package to modify config files, eliminating manual work.
               </p>
               <div className="flex flex-wrap gap-2">
@@ -336,14 +336,14 @@ export default function App() {
             >
               <div className="border-l-2 border-slate-800 pl-6 relative before:content-[''] before:absolute before:-left-[9px] before:top-0 before:w-4 before:h-4 before:bg-slate-900 before:border-2 before:border-lime-400">
                 <div className="font-mono text-lime-400 text-sm mb-1">May 2023</div>
-                <h4 className="font-sans font-bold text-xl uppercase text-slate-200">MS in Computer Science</h4>
-                <div className="font-mono text-slate-500 text-sm">Worcester Polytechnic Institute</div>
+                <h4 className="font-sans font-bold text-xl uppercase text-white">MS in Computer Science</h4>
+                <div className="font-mono text-slate-400 text-sm">Worcester Polytechnic Institute</div>
               </div>
 
               <div className="border-l-2 border-slate-800 pl-6 relative before:content-[''] before:absolute before:-left-[9px] before:top-0 before:w-4 before:h-4 before:bg-slate-900 before:border-2 before:border-cyan-400">
                 <div className="font-mono text-cyan-400 text-sm mb-1">Oct 2020</div>
-                <h4 className="font-sans font-bold text-xl uppercase text-slate-200">BE in Information Technology</h4>
-                <div className="font-mono text-slate-500 text-sm">University of Mumbai</div>
+                <h4 className="font-sans font-bold text-xl uppercase text-white">BE in Information Technology</h4>
+                <div className="font-mono text-slate-400 text-sm">University of Mumbai</div>
               </div>
             </motion.div>
           </div>
@@ -356,13 +356,13 @@ export default function App() {
           </div>
 
           <div className="flex gap-6 items-center">
-            <a href="https://linkedin.com/in/akhildaphara" target="_blank" rel="noreferrer"  className="text-slate-400 hover:text-lime-400 transition-colors">
+            <a href="https://linkedin.com/in/akhildaphara" target="_blank" rel="noreferrer"  className="text-slate-300 hover:text-lime-400 transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
-            <a href="mailto:akhildaphara@gmail.com"  className="text-slate-400 hover:text-cyan-400 transition-colors">
+            <a href="mailto:akhildaphara@gmail.com"  className="text-slate-300 hover:text-cyan-400 transition-colors">
               <Mail size={24} />
             </a>
-            <a href="tel:7744189117"  className="font-mono text-slate-400 hover:text-pink-400 transition-colors">
+            <a href="tel:7744189117"  className="font-mono text-slate-300 hover:text-pink-400 transition-colors">
               774-418-9117
             </a>
           </div>
