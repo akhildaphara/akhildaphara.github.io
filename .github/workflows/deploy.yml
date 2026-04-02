@@ -2,11 +2,10 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main, master ]
-  workflow_dispatch:
+    branches: [ source ]
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -26,19 +25,11 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build
-        run: npm run build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        run: npm run build --base=./
+      - name: Deploy to master branch
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: ./dist
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: master
+          cname: akhildaphara.github.io
