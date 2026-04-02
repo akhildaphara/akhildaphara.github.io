@@ -112,7 +112,7 @@ export default function App() {
             </h1>
 
             <div className="font-mono text-slate-300 text-lg md:text-xl max-w-2xl mt-8 whitespace-pre-wrap">
-              <TypewriterText text={"> Software Engineer based in Boston, MA.\n> Specializing in scalable backend systems, AWS, and MCP integrations."} delay={1} />
+              <TypewriterText text={"> Software Engineer based in Boston, MA.\n> Specializing in backend systems, AWS, Node.js, and AI assisted development."} delay={1} />
             </div>
 
             <motion.div
@@ -166,7 +166,7 @@ export default function App() {
                 <ul className="font-mono text-slate-300 space-y-4 text-sm md:text-base">
                   <li className="flex gap-4 items-start">
                     <span className="inline-block w-1.5 h-1.5 bg-lime-400/50 mt-2 shrink-0"></span>
-                    <span>Piloted <span className="text-white">Cursor AI</span> to increase team productivity, successfully scaling the tool to 100% of the organization.</span>
+                    <span>Part of <span className="text-white">Cursor AI</span> pilot to increase team productivity, successfully scaling the tool to 100% of the organization.</span>
                   </li>
                   <li className="flex gap-4 items-start">
                     <span className="inline-block w-1.5 h-1.5 bg-lime-400/50 mt-2 shrink-0"></span>
