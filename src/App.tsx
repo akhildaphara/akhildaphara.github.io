@@ -164,18 +164,22 @@ export default function App() {
                 <h3 className="font-sans font-bold text-3xl uppercase tracking-tight text-slate-200 group-hover:text-cyan-400 transition-colors">
                   Software Engineer
                 </h3>
-                <ul className="font-mono text-slate-400 space-y-4 text-sm md:text-base border-l-2 border-slate-800 pl-6">
-                  <li className="relative before:content-['>'] before:absolute before:-left-10 before:text-lime-400">
-                    Piloted <span className="text-slate-200">Cursor AI</span> to increase team productivity, successfully scaling the tool to 100% of the organization.
+                <ul className="font-mono text-slate-400 space-y-4 text-sm md:text-base">
+                  <li className="flex gap-4 items-start">
+                    <span className="inline-block w-1.5 h-1.5 bg-lime-400/50 mt-2 shrink-0"></span>
+                    <span>Piloted <span className="text-slate-200">Cursor AI</span> to increase team productivity, successfully scaling the tool to 100% of the organization.</span>
                   </li>
-                  <li className="relative before:content-['>'] before:absolute before:-left-10 before:text-lime-400">
-                    Won internal hackathon prize for building a <span className="text-slate-200">Model Context Protocol (MCP) server</span> that integrated public APIs with IDEs and Amazon Bedrock.
+                  <li className="flex gap-4 items-start">
+                    <span className="inline-block w-1.5 h-1.5 bg-lime-400/50 mt-2 shrink-0"></span>
+                    <span>Won internal hackathon prize for building a <span className="text-slate-200">Model Context Protocol (MCP) server</span> that integrated public APIs with IDEs and Amazon Bedrock.</span>
                   </li>
-                  <li className="relative before:content-['>'] before:absolute before:-left-10 before:text-lime-400">
-                    Designed and implemented <span className="text-slate-200">AWS Step Function workflow</span> for distributed computing, reducing compute time from hours to under 18 minutes.
+                  <li className="flex gap-4 items-start">
+                    <span className="inline-block w-1.5 h-1.5 bg-lime-400/50 mt-2 shrink-0"></span>
+                    <span>Designed and implemented <span className="text-slate-200">AWS Step Function workflow</span> for distributed computing, reducing compute time from hours to under 18 minutes.</span>
                   </li>
-                  <li className="relative before:content-['>'] before:absolute before:-left-10 before:text-lime-400">
-                    Developed a core <span className="text-slate-200">Node.js utility library</span> adopted by multiple teams to standardize external integrations (HTTP, Database, S3).
+                  <li className="flex gap-4 items-start">
+                    <span className="inline-block w-1.5 h-1.5 bg-lime-400/50 mt-2 shrink-0"></span>
+                    <span>Developed a core <span className="text-slate-200">Node.js utility library</span> adopted by multiple teams to standardize external integrations (HTTP, Database, S3).</span>
                   </li>
                 </ul>
                 <div className="flex flex-wrap gap-2 pt-4">
@@ -203,15 +207,18 @@ export default function App() {
                 <h3 className="font-sans font-bold text-3xl uppercase tracking-tight text-slate-200 group-hover:text-pink-400 transition-colors">
                   Software Engineer Intern
                 </h3>
-                <ul className="font-mono text-slate-400 space-y-4 text-sm md:text-base border-l-2 border-slate-800 pl-6">
-                  <li className="relative before:content-['>'] before:absolute before:-left-10 before:text-lime-400">
-                    Led the successful migration of microservices from <span className="text-slate-200">Hystrix to Resilience4j</span>, ensuring fault tolerance without disrupting production.
+                <ul className="font-mono text-slate-400 space-y-4 text-sm md:text-base">
+                  <li className="flex gap-4 items-start">
+                    <span className="inline-block w-1.5 h-1.5 bg-pink-400/50 mt-2 shrink-0"></span>
+                    <span>Led the successful migration of microservices from <span className="text-slate-200">Hystrix to Resilience4j</span>, ensuring fault tolerance without disrupting production.</span>
                   </li>
-                  <li className="relative before:content-['>'] before:absolute before:-left-10 before:text-lime-400">
-                    Decoupled testing architecture by enforcing strict separation of concerns, resulting in a more maintainable unit testing suite.
+                  <li className="flex gap-4 items-start">
+                    <span className="inline-block w-1.5 h-1.5 bg-pink-400/50 mt-2 shrink-0"></span>
+                    <span>Decoupled testing architecture by enforcing strict separation of concerns, resulting in a more maintainable unit testing suite.</span>
                   </li>
-                  <li className="relative before:content-['>'] before:absolute before:-left-10 before:text-lime-400">
-                    Streamlined a <span className="text-slate-200">Kotlin library</span> to accommodate new features and introduce an efficient code reuse path.
+                  <li className="flex gap-4 items-start">
+                    <span className="inline-block w-1.5 h-1.5 bg-pink-400/50 mt-2 shrink-0"></span>
+                    <span>Streamlined a <span className="text-slate-200">Kotlin library</span> to accommodate new features and introduce an efficient code reuse path.</span>
                   </li>
                 </ul>
                 <div className="flex flex-wrap gap-2 pt-4">
@@ -239,15 +246,18 @@ export default function App() {
                 <h3 className="font-sans font-bold text-3xl uppercase tracking-tight text-slate-200 group-hover:text-cyan-400 transition-colors">
                   Trainee Asst Consultant - Software
                 </h3>
-                <ul className="font-mono text-slate-400 space-y-4 text-sm md:text-base border-l-2 border-slate-800 pl-6">
-                  <li className="relative before:content-['>'] before:absolute before:-left-10 before:text-lime-400">
-                    Collaborated with the CEO in building ERP system using <span className="text-slate-200">Python, JavaScript, HTML, CSS, and SQL</span>.
+                <ul className="font-mono text-slate-400 space-y-4 text-sm md:text-base">
+                  <li className="flex gap-4 items-start">
+                    <span className="inline-block w-1.5 h-1.5 bg-cyan-400/50 mt-2 shrink-0"></span>
+                    <span>Collaborated with the CEO in building ERP system using <span className="text-slate-200">Python, JavaScript, HTML, CSS, and SQL</span>.</span>
                   </li>
-                  <li className="relative before:content-['>'] before:absolute before:-left-10 before:text-lime-400">
-                    Deployed Application Monitoring System on Linux Instance using <span className="text-slate-200">Elasticsearch</span> for effortless monitoring.
+                  <li className="flex gap-4 items-start">
+                    <span className="inline-block w-1.5 h-1.5 bg-cyan-400/50 mt-2 shrink-0"></span>
+                    <span>Deployed Application Monitoring System on Linux Instance using <span className="text-slate-200">Elasticsearch</span> for effortless monitoring.</span>
                   </li>
-                  <li className="relative before:content-['>'] before:absolute before:-left-10 before:text-lime-400">
-                    Programmed support of Docker and Oracle database in existing CLI tool, cutting manual work by &gt;50%.
+                  <li className="flex gap-4 items-start">
+                    <span className="inline-block w-1.5 h-1.5 bg-cyan-400/50 mt-2 shrink-0"></span>
+                    <span>Programmed support of Docker and Oracle database in existing CLI tool, cutting manual work by &gt;50%.</span>
                   </li>
                 </ul>
                 <div className="flex flex-wrap gap-2 pt-4">
