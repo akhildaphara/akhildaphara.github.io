@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Database, Server, Mail, User } from 'lucide-react';
+import { Terminal, Database, Server, Mail } from 'lucide-react';
 
 interface TypewriterTextProps { text: string; delay?: number; className?: string; }
 const TypewriterText = ({ text, delay = 0, className = "" }: TypewriterTextProps) => {
@@ -35,28 +35,6 @@ const TypewriterText = ({ text, delay = 0, className = "" }: TypewriterTextProps
   );
 };
 
-interface GlitchTextProps { text: string; className?: string; }
-const GlitchText = ({ text, className = "" }: GlitchTextProps) => {
-  return (
-    <div className={`relative inline-block ${className}`}>
-      <span className="relative z-10">{text}</span>
-      <motion.span
-        className="absolute top-0 left-[2px] -z-10 text-cyan-400 opacity-70"
-        animate={{ x: [-2, 2, -1, 0], y: [1, -1, 0, 0] }}
-        transition={{ repeat: Infinity, duration: 2, repeatType: "mirror", repeatDelay: Math.random() * 2 }}
-      >
-        {text}
-      </motion.span>
-      <motion.span
-        className="absolute top-0 -left-[2px] -z-10 text-pink-400 opacity-70"
-        animate={{ x: [2, -2, 1, 0], y: [-1, 1, 0, 0] }}
-        transition={{ repeat: Infinity, duration: 2.5, repeatType: "mirror", repeatDelay: Math.random() * 2 }}
-      >
-        {text}
-      </motion.span>
-    </div>
-  );
-};
 
 interface SectionHeadingProps { children: ReactNode; number: string; }
 const SectionHeading = ({ children, number }: SectionHeadingProps) => (
@@ -64,10 +42,10 @@ const SectionHeading = ({ children, number }: SectionHeadingProps) => (
     initial={{ opacity: 0, x: -50 }}
     whileInView={{ opacity: 1, x: 0 }}
     viewport={{ once: true, margin: "-100px" }}
-    className="flex items-end gap-4 mb-12 border-b border-slate-800 pb-4"
+    className="flex items-baseline gap-4 mb-12 border-b border-slate-800 pb-4"
   >
-    <span className="text-lime-400 font-mono text-xl sm:text-2xl leading-none">[{number}]</span>
-    <h2 className="font-sans font-bold text-3xl sm:text-5xl uppercase tracking-tighter text-slate-100 leading-none">
+    <span className="text-lime-400 font-mono text-xl sm:text-2xl">[{number}]</span>
+    <h2 className="font-sans font-bold text-3xl sm:text-5xl uppercase tracking-tighter text-slate-100">
       {children}
     </h2>
   </motion.div>
@@ -81,51 +59,26 @@ const TechBadge = ({ children }: TechBadgeProps) => (
 );
 
 export default function App() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
-  const handleMouseEnter = () => setIsHovering(true);
-  const handleMouseLeave = () => setIsHovering(false);
-
   return (
     <>
       <div className="crt" />
       <div className="noise" />
 
-      <motion.div
-        className="custom-cursor hidden md:block"
-        animate={{
-          x: mousePosition.x,
-          y: mousePosition.y,
-          scale: isHovering ? 2 : 1,
-          backgroundColor: isHovering ? "var(--color-accent-lime)" : "transparent",
-        }}
-        transition={{ type: "spring", stiffness: 500, damping: 28, mass: 0.5 }}
-      />
-
       <nav className="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50 mix-blend-difference">
-        <div className="font-sans font-bold text-xl tracking-tighter uppercase">
+        <a href="#about" className="font-sans font-bold text-xl tracking-tighter uppercase">
           A.D<span className="text-lime-400">_</span>
-        </div>
+        </a>
         <div className="hidden md:flex gap-8 font-mono text-sm">
-          <a href="#about" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="hover:text-lime-400 transition-colors">[01: About]</a>
-          <a href="#experience" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="hover:text-lime-400 transition-colors">[02: Experience]</a>
-          <a href="#projects" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="hover:text-lime-400 transition-colors">[03: Projects]</a>
+          <a href="#about" className="hover:text-lime-400 transition-colors">About</a>
+          <a href="#experience" className="hover:text-lime-400 transition-colors">Experience</a>
+          <a href="#projects" className="hover:text-lime-400 transition-colors">Projects</a>
         </div>
       </nav>
 
       <main className="relative z-10 px-6 md:px-12 lg:px-24 max-w-[1600px] mx-auto selection:bg-lime-400 selection:text-slate-900">
 
         {/* HERO SECTION */}
-        <section className="min-h-screen flex flex-col justify-center pt-20 relative">
+        <section id="about" className="min-h-screen flex flex-col justify-center pt-20 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -154,15 +107,13 @@ export default function App() {
                   transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                   className="flex items-center gap-4"
                 >
-                  <GlitchText text="Daphara" />
+                  Daphara
                 </motion.div>
               </div>
             </h1>
 
-            <div className="font-mono text-slate-400 text-lg md:text-xl max-w-2xl mt-8">
-              <TypewriterText text="> Software Engineer based in Boston, MA." delay={1} />
-              <br/>
-              <TypewriterText text="> Specializing in scalable backend systems, AWS, and MCP integrations." delay={1.5} />
+            <div className="font-mono text-slate-400 text-lg md:text-xl max-w-2xl mt-8 whitespace-pre-wrap">
+              <TypewriterText text={"> Software Engineer based in Boston, MA.\n> Specializing in scalable backend systems, AWS, and MCP integrations."} delay={1} />
             </div>
 
             <motion.div
@@ -173,17 +124,13 @@ export default function App() {
             >
               <a
                 href="#experience"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                className="font-mono text-sm bg-lime-400 text-slate-900 px-6 py-3 uppercase font-bold tracking-wider hover:bg-white transition-colors"
+                                                className="font-mono text-sm bg-lime-400 text-slate-900 px-6 py-3 uppercase font-bold tracking-wider hover:bg-white transition-colors"
               >
                 View Logs //
               </a>
               <a
-                href="mailto:akhildaphara@gmail.com"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                className="font-mono text-sm border border-slate-700 text-slate-300 px-6 py-3 uppercase tracking-wider hover:border-lime-400 hover:text-lime-400 transition-colors flex items-center gap-2"
+                href="#connect"
+                                                className="font-mono text-sm border border-slate-700 text-slate-300 px-6 py-3 uppercase tracking-wider hover:border-lime-400 hover:text-lime-400 transition-colors flex items-center gap-2"
               >
                 <Mail size={16} /> Connect
               </a>
@@ -325,9 +272,7 @@ export default function App() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               className="group border border-slate-800 bg-slate-900/30 p-8 hover:border-lime-400/50 transition-colors relative overflow-hidden"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
+                                        >
               <div className="absolute top-0 right-0 w-32 h-32 bg-lime-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
               <div className="font-mono text-lime-400 mb-4 flex justify-between items-center">
                 <Database size={24} />
@@ -352,9 +297,7 @@ export default function App() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               className="group border border-slate-800 bg-slate-900/30 p-8 hover:border-pink-400/50 transition-colors relative overflow-hidden"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
+                                        >
               <div className="absolute top-0 right-0 w-32 h-32 bg-pink-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
               <div className="font-mono text-pink-400 mb-4 flex justify-between items-center">
                 <Server size={24} />
@@ -397,26 +340,21 @@ export default function App() {
         </section>
 
         {/* FOOTER */}
-        <footer className="py-24 border-t border-slate-800 mt-20 flex flex-col md:flex-row justify-between items-center gap-8">
+        <footer id="connect" className="py-24 border-t border-slate-800 mt-20 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="font-sans font-bold text-2xl uppercase tracking-tighter">
-            <GlitchText text="Akhil Daphara" />
+            Akhil Daphara
           </div>
 
-          <div className="flex gap-6">
-            <a href="https://linkedin.com/in/akhildaphara" target="_blank" rel="noreferrer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="text-slate-400 hover:text-lime-400 transition-colors">
-              <User size={24} />
+          <div className="flex gap-6 items-center">
+            <a href="https://linkedin.com/in/akhildaphara" target="_blank" rel="noreferrer"  className="text-slate-400 hover:text-lime-400 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
-            <a href="mailto:akhildaphara@gmail.com" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="text-slate-400 hover:text-cyan-400 transition-colors">
+            <a href="mailto:akhildaphara@gmail.com"  className="text-slate-400 hover:text-cyan-400 transition-colors">
               <Mail size={24} />
             </a>
-            <a href="tel:7744189117" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="font-mono text-slate-400 hover:text-pink-400 transition-colors">
+            <a href="tel:7744189117"  className="font-mono text-slate-400 hover:text-pink-400 transition-colors">
               774-418-9117
             </a>
-          </div>
-
-          <div className="font-mono text-xs text-slate-600 uppercase tracking-widest text-center md:text-right">
-            <div>© {new Date().getFullYear()} Akhil Daphara</div>
-            <div>Built for the command line</div>
           </div>
         </footer>
 
