@@ -57,6 +57,7 @@ const TechBadge = ({ children }: TechBadgeProps) => (
   </span>
 );
 
+// Trigger new deployment
 export default function App() {
   return (
     <>
