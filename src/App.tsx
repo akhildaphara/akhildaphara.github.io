@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Database, Server, Mail } from 'lucide-react';
+import { Database, Server, Mail } from 'lucide-react';
 
 interface TypewriterTextProps { text: string; delay?: number; className?: string; }
 const TypewriterText = ({ text, delay = 0, className = "" }: TypewriterTextProps) => {
@@ -36,15 +36,14 @@ const TypewriterText = ({ text, delay = 0, className = "" }: TypewriterTextProps
 };
 
 
-interface SectionHeadingProps { children: ReactNode; number: string; }
-const SectionHeading = ({ children, number }: SectionHeadingProps) => (
+interface SectionHeadingProps { children: ReactNode; }
+const SectionHeading = ({ children }: SectionHeadingProps) => (
   <motion.div
     initial={{ opacity: 0, x: -50 }}
     whileInView={{ opacity: 1, x: 0 }}
     viewport={{ once: true, margin: "-100px" }}
     className="flex items-baseline gap-4 mb-12 border-b border-slate-800 pb-4"
   >
-    <span className="text-lime-400 font-mono text-xl sm:text-2xl">[{number}]</span>
     <h2 className="font-sans font-bold text-3xl sm:text-5xl uppercase tracking-tighter text-slate-100">
       {children}
     </h2>
@@ -86,7 +85,7 @@ export default function App() {
             className="space-y-6 max-w-4xl"
           >
             <div className="font-mono text-lime-400 text-lg md:text-xl flex items-center gap-2">
-              <Terminal size={20} />
+              <span>&gt;</span>
               <span>system.init()</span>
             </div>
 
@@ -146,7 +145,7 @@ export default function App() {
 
         {/* EXPERIENCE SECTION */}
         <section id="experience" className="py-32 relative">
-          <SectionHeading number="01">Experience</SectionHeading>
+          <SectionHeading>Experience</SectionHeading>
 
           <div className="space-y-24">
             {/* Job 1 */}
@@ -274,7 +273,7 @@ export default function App() {
 
         {/* PROJECTS SECTION */}
         <section id="projects" className="py-32 relative">
-          <SectionHeading number="02">Projects / Education</SectionHeading>
+          <SectionHeading>Projects / Education</SectionHeading>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <motion.div
