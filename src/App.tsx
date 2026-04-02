@@ -107,7 +107,7 @@ export default function App() {
                   transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                   className="flex items-center gap-4"
                 >
-                  Daphara
+                  Daphara - V2
                 </motion.div>
               </div>
             </h1>
