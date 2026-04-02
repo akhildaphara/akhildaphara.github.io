@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Syncopate', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --color-primary-base: #0f172a;
+  --color-primary-light: #1e293b;
+  --color-primary-dark: #020617;
+
+  --color-accent-lime: #a3e635;
+  --color-accent-cyan: #22d3ee;
+  --color-accent-pink: #f472b6;
+
+  --color-text-main: #f8fafc;
+  --color-text-muted: #94a3b8;
+}
+
+@layer base {
+  :root {
+    --bg-color: var(--color-primary-dark);
+    --text-color: var(--color-text-main);
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Space Mono', monospace;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-accent-lime);
+    color: var(--color-primary-dark);
+  }
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-accent-lime);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+
+/* CRT Overlay Effect */
+.crt::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+/* Noise overlay */
+.noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.04;
+  background: url('data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');
+}
