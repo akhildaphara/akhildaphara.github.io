@@ -244,7 +244,7 @@ export default function App() {
               </div>
               <div className="space-y-6">
                 <h3 className="font-sans font-bold text-3xl uppercase tracking-tight text-white group-hover:text-cyan-400 transition-colors">
-                  Trainee Asst Consultant - Software
+                  Backend Developer
                 </h3>
                 <ul className="font-mono text-slate-300 space-y-4 text-sm md:text-base">
                   <li className="flex gap-4 items-start">
