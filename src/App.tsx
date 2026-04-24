@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { Database, Server, Mail, ExternalLink } from 'lucide-react';
+import { Server, Mail, ExternalLink } from 'lucide-react';
 
 interface TypewriterTextProps { text: string; delay?: number; className?: string; }
 const TypewriterText = ({ text, delay = 0, className = "" }: TypewriterTextProps) => {
