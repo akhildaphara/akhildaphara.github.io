@@ -306,6 +306,34 @@ export default function App() {
               </motion.div>
             </a>
 
+            <a href="https://monet-3d69d.web.app/" target="_blank" rel="noopener noreferrer">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="group border border-slate-800 bg-slate-900/30 p-8 hover:border-lime-400/50 transition-colors relative overflow-hidden h-full"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-lime-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
+                <div className="font-mono text-lime-400 mb-4 flex justify-between items-center">
+                  <Server size={24} />
+                  <span className="text-xs tracking-widest uppercase flex items-center gap-2">
+                    Project <ExternalLink size={16} />
+                  </span>
+                </div>
+                <h3 className="font-sans font-bold text-2xl uppercase mb-4 text-slate-100 group-hover:text-lime-400 transition-colors">
+                  Monet
+                </h3>
+                <p className="font-mono text-slate-300 text-sm mb-6 line-clamp-3">
+                  The mathematically perfect way to play the credit cards points game.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <TechBadge>React</TechBadge>
+                  <TechBadge>Firebase</TechBadge>
+                  <TechBadge>Material UI</TechBadge>
+                </div>
+              </motion.div>
+            </a>
+
 
             <a href="https://credence-docs.gitlab.io/credcli/" target="_blank" rel="noopener noreferrer">
               <motion.div
