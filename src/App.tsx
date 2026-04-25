@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { Server, Mail, ExternalLink, GraduationCap } from 'lucide-react';
+import { Mail, ExternalLink, GraduationCap, SpellCheck, CreditCard, Terminal, Package } from 'lucide-react';
 
 interface TypewriterTextProps { text: string; delay?: number; className?: string; }
 const TypewriterText = ({ text, delay = 0, className = "" }: TypewriterTextProps) => {
@@ -158,7 +158,7 @@ export default function App() {
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-pink-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
                 <div className="font-mono text-pink-400 mb-4 flex justify-between items-center">
-                  <Server size={24} />
+                  <SpellCheck size={24} />
                   <span className="text-xs tracking-widest uppercase flex items-center gap-2">
                     Project <ExternalLink size={16} />
                   </span>
@@ -187,7 +187,7 @@ export default function App() {
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-lime-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
                 <div className="font-mono text-lime-400 mb-4 flex justify-between items-center">
-                  <Server size={24} />
+                  <CreditCard size={24} />
                   <span className="text-xs tracking-widest uppercase flex items-center gap-2">
                     Project <ExternalLink size={16} />
                   </span>
@@ -216,7 +216,7 @@ export default function App() {
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
                 <div className="font-mono text-cyan-400 mb-4 flex justify-between items-center">
-                  <Server size={24} />
+                  <Terminal size={24} />
                   <span className="text-xs tracking-widest uppercase flex items-center gap-2">
                     Project <ExternalLink size={16} />
                   </span>
@@ -244,7 +244,7 @@ export default function App() {
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-pink-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
                 <div className="font-mono text-pink-400 mb-4 flex justify-between items-center">
-                  <Server size={24} />
+                  <Package size={24} />
                   <span className="text-xs tracking-widest uppercase flex items-center gap-2">
                     Project <ExternalLink size={16} />
                   </span>
