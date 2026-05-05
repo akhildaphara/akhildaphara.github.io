@@ -76,7 +76,7 @@ export default function App() {
         </div>
       </nav>
 
-      <main className="relative z-10 px-6 md:px-12 lg:px-24 max-w-[1600px] mx-auto selection:bg-lime-400 selection:text-slate-900">
+      <main className="relative z-10 px-6 md:px-12 lg:px-24 max-w-[1600px] mx-auto selection:bg-lime-400 selection:text-white">
 
         {/* HERO SECTION */}
         <section id="about" className="min-h-screen flex flex-col justify-center pt-20 relative">
@@ -125,7 +125,7 @@ export default function App() {
             >
               <a
                 href="#projects"
-                                                className="font-mono text-sm bg-lime-400 text-slate-900 px-6 py-3 uppercase font-bold tracking-wider hover:bg-white transition-colors"
+                                                className="font-mono text-sm bg-lime-400 text-black px-6 py-3 uppercase font-bold tracking-wider hover:bg-white transition-colors"
               >
                 View Logs //
               </a>
