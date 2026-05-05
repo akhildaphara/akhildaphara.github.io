@@ -30,7 +30,7 @@
   }
 
   ::selection {
-    background: var(--color-accent-lime);
+    background: var(--color-accent-cyan);
     color: var(--color-primary-dark);
   }
 }

@@ -88,7 +88,7 @@ export default function App() {
         </div>
       </nav>
 
-      <main className="relative z-10 px-6 md:px-12 lg:px-24 max-w-[1600px] mx-auto selection:bg-lime-400 selection:text-white">
+      <main className="relative z-10 px-6 md:px-12 lg:px-24 max-w-[1600px] mx-auto selection:bg-cyan-400 selection:text-white">
 
         {/* HERO SECTION */}
         <section id="about" className="min-h-screen flex flex-col justify-center pt-20 relative">
