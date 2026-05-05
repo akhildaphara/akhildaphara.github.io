@@ -44,7 +44,7 @@ const SectionHeading = ({ children }: SectionHeadingProps) => (
     viewport={{ once: true, margin: "-100px" }}
     className="flex items-baseline gap-4 mb-12 border-b border-slate-800 pb-4"
   >
-    <h2 className="font-sans font-bold text-3xl sm:text-5xl uppercase tracking-tighter text-slate-100">
+    <h2 className="font-sans font-bold text-3xl sm:text-5xl uppercase tracking-wider text-slate-100">
       {children}
     </h2>
   </motion.div>
@@ -77,7 +77,7 @@ export default function App() {
       <div className="noise" />
 
       <nav className="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50 mix-blend-difference">
-        <a href="#about" className="font-sans font-bold text-xl tracking-tighter uppercase">
+        <a href="#about" className="font-sans font-bold text-xl tracking-wider uppercase">
           A.D<span className="text-lime-400">_</span>
         </a>
         <div className="hidden md:flex gap-8 font-mono text-sm">
@@ -103,7 +103,7 @@ export default function App() {
               <span>system.init()</span>
             </div>
 
-            <h1 className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl xl:text-9xl uppercase tracking-tighter leading-[0.85]">
+            <h1 className="font-sans font-bold text-4xl md:text-6xl lg:text-7xl xl:text-8xl uppercase tracking-wider leading-[0.85]">
               <div className="overflow-hidden">
                 <motion.div
                   initial={{ y: "100%" }}
@@ -176,7 +176,7 @@ export default function App() {
                 <h3 className="font-sans font-bold text-2xl uppercase mb-4 text-slate-100 group-hover:text-pink-400 transition-colors">
                   Endless Scrabble
                 </h3>
-                <p className="font-mono text-slate-300 text-sm mb-6 line-clamp-3">
+                <p className="font-mono text-slate-300 text-sm mb-6 line-clamp-3 leading-relaxed max-w-prose">
                   A massively multiplayer infinite Scrabble game on a shared, endless canvas. All players build on the same board in real time.
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -202,7 +202,7 @@ export default function App() {
                 <h3 className="font-sans font-bold text-2xl uppercase mb-4 text-slate-100 group-hover:text-lime-400 transition-colors">
                   Monet
                 </h3>
-                <p className="font-mono text-slate-300 text-sm mb-6 line-clamp-3">
+                <p className="font-mono text-slate-300 text-sm mb-6 line-clamp-3 leading-relaxed max-w-prose">
                   The mathematically perfect way to play the credit cards points game.
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -228,7 +228,7 @@ export default function App() {
                 <h3 className="font-sans font-bold text-2xl uppercase mb-4 text-slate-100 group-hover:text-cyan-400 transition-colors">
                   CLI App for Version Control
                 </h3>
-                <p className="font-mono text-slate-300 text-sm mb-6 line-clamp-3">
+                <p className="font-mono text-slate-300 text-sm mb-6 line-clamp-3 leading-relaxed max-w-prose">
                   A NodeJS CLI tool to automate version control with extensive unit testing.
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -253,7 +253,7 @@ export default function App() {
                 <h3 className="font-sans font-bold text-2xl uppercase mb-4 text-slate-100 group-hover:text-pink-400 transition-colors">
                   Parsifier
                 </h3>
-                <p className="font-mono text-slate-300 text-sm mb-6 line-clamp-3">
+                <p className="font-mono text-slate-300 text-sm mb-6 line-clamp-3 leading-relaxed max-w-prose">
                   Published "Parsifier" NPM package to modify config files, eliminating manual work.
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -277,7 +277,7 @@ export default function App() {
               viewport={{ once: true, margin: "-100px" }}
               className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-8 group"
             >
-              <div className="font-mono">
+              <div className="font-mono tabular-nums">
                 <div className="text-lime-400 mb-2">May 2023 — Present</div>
                 <div className="text-slate-400 uppercase tracking-widest text-xs mb-4">Genesys, USA</div>
               </div>
@@ -285,7 +285,7 @@ export default function App() {
                 <h3 className="font-sans font-bold text-3xl uppercase tracking-tight text-white group-hover:text-cyan-400 transition-colors">
                   Software Engineer
                 </h3>
-                <ul className="font-mono text-slate-300 space-y-4 text-sm md:text-base">
+                <ul className="font-mono text-slate-300 space-y-4 text-sm md:text-base leading-relaxed max-w-3xl">
                   <li className="flex gap-4 items-start">
                     <motion.span 
                       animate={{ opacity: [0.3, 0.6, 0.3] }}
@@ -336,7 +336,7 @@ export default function App() {
               viewport={{ once: true, margin: "-100px" }}
               className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-8 group"
             >
-              <div className="font-mono">
+              <div className="font-mono tabular-nums">
                 <div className="text-lime-400 mb-2">May 2022 — May 2023</div>
                 <div className="text-slate-400 uppercase tracking-widest text-xs mb-4">Genesys, USA</div>
               </div>
@@ -344,7 +344,7 @@ export default function App() {
                 <h3 className="font-sans font-bold text-3xl uppercase tracking-tight text-white group-hover:text-pink-400 transition-colors">
                   Software Engineer Intern
                 </h3>
-                <ul className="font-mono text-slate-300 space-y-4 text-sm md:text-base">
+                <ul className="font-mono text-slate-300 space-y-4 text-sm md:text-base leading-relaxed max-w-3xl">
                   <li className="flex gap-4 items-start">
                     <motion.span 
                       animate={{ opacity: [0.3, 0.6, 0.3] }}
@@ -387,7 +387,7 @@ export default function App() {
               viewport={{ once: true, margin: "-100px" }}
               className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-8 group"
             >
-              <div className="font-mono">
+              <div className="font-mono tabular-nums">
                 <div className="text-lime-400 mb-2">Mar 2021 — Jun 2021</div>
                 <div className="text-slate-400 uppercase tracking-widest text-xs mb-4">Credence Analytics, India</div>
               </div>
@@ -395,7 +395,7 @@ export default function App() {
                 <h3 className="font-sans font-bold text-3xl uppercase tracking-tight text-white group-hover:text-cyan-400 transition-colors">
                   Backend Developer
                 </h3>
-                <ul className="font-mono text-slate-300 space-y-4 text-sm md:text-base">
+                <ul className="font-mono text-slate-300 space-y-4 text-sm md:text-base leading-relaxed max-w-3xl">
                   <li className="flex gap-4 items-start">
                     <motion.span 
                       animate={{ opacity: [0.3, 0.6, 0.3] }}
