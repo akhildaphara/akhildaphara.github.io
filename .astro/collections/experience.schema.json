@@ -1,0 +1,56 @@
+{
+  "$ref": "#/definitions/experience",
+  "definitions": {
+    "experience": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string",
+          "enum": [
+            "cyan",
+            "pink",
+            "lime"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "order": {
+          "type": "number"
+        },
+        "bullets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "role",
+        "company",
+        "date",
+        "color",
+        "tags",
+        "order",
+        "bullets"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

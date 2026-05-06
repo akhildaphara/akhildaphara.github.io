@@ -1,10 +1,25 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/astro/Navbar.astro';
 import SectionHeading from '../components/astro/SectionHeading.astro';
 import TechBadge from '../components/astro/TechBadge.astro';
 import { TypewriterText } from '../components/react/TypewriterText';
 import { Mail, ExternalLink, GraduationCap, SpellCheck, CreditCard, Terminal, Package, Laptop } from 'lucide-react';
+
+const allProjects = await getCollection('projects');
+const sortedProjects = allProjects.sort((a, b) => a.data.order - b.data.order);
+
+const allExperience = await getCollection('experience');
+const sortedExperience = allExperience.sort((a, b) => a.data.order - b.data.order);
+
+const IconMap: Record<string, any> = { SpellCheck, Laptop, CreditCard, Terminal, Package };
+
+const colorClasses = {
+  pink: { text: 'text-pink-400', borderHover: 'hover:border-pink-400/50', bgGlow: 'bg-pink-400/10', groupHoverText: 'group-hover:text-pink-400', bgDot: 'bg-pink-400/50' },
+  lime: { text: 'text-lime-400', borderHover: 'hover:border-lime-400/50', bgGlow: 'bg-lime-400/10', groupHoverText: 'group-hover:text-lime-400', bgDot: 'bg-lime-400/50' },
+  cyan: { text: 'text-cyan-400', borderHover: 'hover:border-cyan-400/50', bgGlow: 'bg-cyan-400/10', groupHoverText: 'group-hover:text-cyan-400', bgDot: 'bg-cyan-400/50' },
+};
 ---
 
 <BaseLayout>
@@ -55,127 +70,41 @@ import { Mail, ExternalLink, GraduationCap, SpellCheck, CreditCard, Terminal, Pa
 			<SectionHeading>Projects</SectionHeading>
 
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8">
-				<!-- Project 1 -->
-				<a href="https://endless-scrabble-13a74.web.app/" target="_blank" rel="noopener noreferrer" class="sm:col-span-2 lg:col-span-4">
-					<div class="group border border-slate-800 bg-slate-900/50 p-8 hover:border-pink-400/50 hover:-translate-y-1 active:scale-[0.98] transition-all duration-300 relative overflow-hidden h-full">
-						<div class="absolute top-0 right-0 w-48 h-48 bg-pink-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500"></div>
-						<div class="font-mono text-pink-400 mb-4 flex justify-between items-center">
-							<SpellCheck size={32} />
-							<span class="text-[10px] tracking-widest uppercase flex items-center gap-2">
-								Web-App <ExternalLink size={14} />
-							</span>
-						</div>
-						<h3 class="font-sans font-bold text-3xl uppercase mb-4 text-slate-100 group-hover:text-pink-400 transition-colors">
-							Endless Scrabble
-						</h3>
-						<p class="font-mono text-slate-300 text-base mb-6 leading-relaxed max-w-prose">
-							A massively multiplayer infinite Scrabble game on a shared, endless canvas. All players build on the same board in real time.
-						</p>
-						<div class="flex flex-wrap gap-2">
-							<TechBadge>Vanilla JS</TechBadge>
-							<TechBadge>HTML Canvas</TechBadge>
-							<TechBadge>Firebase</TechBadge>
-							<TechBadge>Tailwind CSS</TechBadge>
-						</div>
-					</div>
-				</a>
-
-				<!-- Project 5 -->
-				<a href="https://backend-mystery.web.app" target="_blank" rel="noopener noreferrer" class="sm:col-span-2 lg:col-span-2">
-					<div class="group border border-slate-800 bg-slate-900/50 p-8 hover:border-lime-400/50 hover:-translate-y-1 active:scale-[0.98] transition-all duration-300 relative overflow-hidden h-full">
-						<div class="absolute top-0 right-0 w-32 h-32 bg-lime-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500"></div>
-						<div class="font-mono text-lime-400 mb-4 flex justify-between items-center">
-							<Laptop size={24} />
-							<span class="text-[10px] tracking-widest uppercase flex items-center gap-2">
-								Web-App <ExternalLink size={14} />
-							</span>
-						</div>
-						<h3 class="font-sans font-bold text-2xl uppercase mb-4 text-slate-100 group-hover:text-lime-400 transition-colors">
-							Backend Mystery
-						</h3>
-						<p class="font-mono text-slate-300 text-sm mb-6 leading-relaxed">
-							An interactive learning platform designed to demystify backend programming fundamentals through flashcards.
-						</p>
-						<div class="flex flex-wrap gap-2">
-							<TechBadge>React</TechBadge>
-							<TechBadge>Education</TechBadge>
-						</div>
-					</div>
-				</a>
-
-				<!-- Project 2 -->
-				<a href="https://monet-3d69d.web.app/" target="_blank" rel="noopener noreferrer" class="sm:col-span-2 lg:col-span-6">
-					<div class="group border border-slate-800 bg-slate-900/50 p-8 hover:border-lime-400/50 hover:-translate-y-1 active:scale-[0.98] transition-all duration-300 relative overflow-hidden h-full">
-						<div class="absolute top-0 right-0 w-32 h-32 bg-lime-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500"></div>
-						<div class="font-mono text-lime-400 mb-4 flex justify-between items-center">
-							<CreditCard size={24} />
-							<span class="text-[10px] uppercase flex items-center gap-2">
-								<span class="lowercase font-bold">i</span><span class="tracking-widest">OS APP</span>
-								<ExternalLink size={14} />
-							</span>
-						</div>
-						<h3 class="font-sans font-bold text-2xl uppercase mb-4 text-slate-100 group-hover:text-lime-400 transition-colors flex items-center gap-3">
-							Monet
-							<span class="px-2 py-0.5 bg-lime-400 text-black text-[10px] font-bold rounded-sm tracking-normal">
-								COMING SOON
-							</span>
-						</h3>
-						<p class="font-mono text-slate-300 text-sm mb-6 leading-relaxed max-w-prose">
-							The mathematically perfect way to play the credit cards points game. Optimize your rewards with precision.
-						</p>
-						<div class="flex flex-wrap gap-2">
-							<TechBadge>React</TechBadge>
-							<TechBadge>Firebase</TechBadge>
-							<TechBadge>Material UI</TechBadge>
-						</div>
-					</div>
-				</a>
-
-				<!-- Project 3 -->
-				<a href="https://credence-docs.gitlab.io/credcli/" target="_blank" rel="noopener noreferrer" class="sm:col-span-1 lg:col-span-3">
-					<div class="group border border-slate-800 bg-slate-900/50 p-8 hover:border-cyan-400/50 hover:-translate-y-1 active:scale-[0.98] transition-all duration-300 relative overflow-hidden h-full">
-						<div class="absolute top-0 right-0 w-40 h-40 bg-cyan-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500"></div>
-						<div class="font-mono text-cyan-400 mb-4 flex justify-between items-center">
-							<Terminal size={28} />
-							<span class="text-[10px] tracking-widest uppercase flex items-center gap-2">
-								Developer Tool <ExternalLink size={14} />
-							</span>
-						</div>
-						<h3 class="font-sans font-bold text-2xl uppercase mb-4 text-slate-100 group-hover:text-cyan-400 transition-colors">
-							CLI App
-						</h3>
-						<p class="font-mono text-slate-300 text-sm mb-6 leading-relaxed">
-							A robust NodeJS CLI tool designed to automate complex version control workflows with extensive unit testing coverage.
-						</p>
-						<div class="flex flex-wrap gap-2">
-							<TechBadge>NodeJS</TechBadge>
-							<TechBadge>Git</TechBadge>
-						</div>
-					</div>
-				</a>
-
-				<!-- Project 4 -->
-				<a href="https://www.npmjs.com/package/@credenceanalytics/parsifier" target="_blank" rel="noopener noreferrer" class="sm:col-span-1 lg:col-span-3">
-					<div class="group border border-slate-800 bg-slate-900/50 p-8 hover:border-pink-400/50 hover:-translate-y-1 active:scale-[0.98] transition-all duration-300 relative overflow-hidden h-full">
-						<div class="absolute top-0 right-0 w-32 h-32 bg-pink-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500"></div>
-						<div class="font-mono text-pink-400 mb-4 flex justify-between items-center">
-							<Package size={24} />
-							<span class="text-[10px] tracking-widest uppercase flex items-center gap-2">
-								Library <ExternalLink size={14} />
-							</span>
-						</div>
-						<h3 class="font-sans font-bold text-2xl uppercase mb-4 text-slate-100 group-hover:text-pink-400 transition-colors">
-							Parsifier
-						</h3>
-						<p class="font-mono text-slate-300 text-sm mb-6 leading-relaxed">
-							Published NPM package to modify configuration files programmatically, eliminating manual intervention in build pipelines.
-						</p>
-						<div class="flex flex-wrap gap-2">
-							<TechBadge>NodeJS</TechBadge>
-							<TechBadge>NPM</TechBadge>
-						</div>
-					</div>
-				</a>
+				{sortedProjects.map(project => {
+					const { title, url, typeHtml, icon, iconSize, glowSize, color, colSpan, comingSoon, featured, description, tags } = project.data;
+					const Icon = IconMap[icon];
+					const c = colorClasses[color as keyof typeof colorClasses];
+					
+					return (
+						<a href={url} target="_blank" rel="noopener noreferrer" class={colSpan}>
+							<div class={`group border border-slate-800 bg-slate-900/50 p-8 ${c.borderHover} hover:-translate-y-1 active:scale-[0.98] transition-all duration-300 relative overflow-hidden h-full`}>
+								<div class={`absolute top-0 right-0 ${glowSize} ${c.bgGlow} rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500`}></div>
+								<div class={`font-mono ${c.text} mb-4 flex justify-between items-center`}>
+									<Icon size={iconSize} />
+									<span class="text-[10px] tracking-widest uppercase flex items-center gap-2">
+										<Fragment set:html={typeHtml} /> <ExternalLink size={14} />
+									</span>
+								</div>
+								<h3 class={`font-sans font-bold uppercase mb-4 text-slate-100 ${c.groupHoverText} transition-colors ${comingSoon ? 'flex items-center gap-3' : ''} ${featured ? 'text-3xl' : 'text-2xl'}`}>
+									{title}
+									{comingSoon && (
+										<span class="px-2 py-0.5 bg-lime-400 text-black text-[10px] font-bold rounded-sm tracking-normal">
+											COMING SOON
+										</span>
+									)}
+								</h3>
+								<p class={`font-mono text-slate-300 mb-6 leading-relaxed max-w-prose ${featured ? 'text-base' : 'text-sm'}`}>
+									{description}
+								</p>
+								<div class="flex flex-wrap gap-2">
+									{tags.map(tag => (
+										<TechBadge>{tag}</TechBadge>
+									))}
+								</div>
+							</div>
+						</a>
+					);
+				})}
 			</div>
 		</section>
 
@@ -184,111 +113,37 @@ import { Mail, ExternalLink, GraduationCap, SpellCheck, CreditCard, Terminal, Pa
 			<SectionHeading>Experience</SectionHeading>
 
 			<div class="space-y-24">
-				<!-- Job 1 -->
-				<div class="scroll-fade-up opacity-0 translate-y-[50px] transition-all duration-700 ease-out grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-8 group">
-					<div class="font-mono tabular-nums">
-						<div class="text-lime-400 mb-2">May 2023 — Present</div>
-						<div class="text-slate-400 uppercase tracking-widest text-xs mb-4">Genesys, USA</div>
-					</div>
-					<div class="space-y-6">
-						<h3 class="font-sans font-bold text-3xl uppercase tracking-tight text-white group-hover:text-cyan-400 transition-colors">
-							Software Engineer
-						</h3>
-						<ul class="font-mono text-slate-300 space-y-4 text-sm md:text-base leading-relaxed max-w-3xl">
-							<li class="flex gap-4 items-start">
-								<span class="inline-block w-1.5 h-1.5 bg-lime-400/50 mt-2 shrink-0 animate-pulse-opacity"></span>
-								<span>Part of <span class="text-white">Cursor AI</span> pilot to increase team productivity, successfully scaling the tool to 100% of the organization.</span>
-							</li>
-							<li class="flex gap-4 items-start">
-								<span class="inline-block w-1.5 h-1.5 bg-lime-400/50 mt-2 shrink-0 animate-pulse-opacity"></span>
-								<span>Won internal hackathon prize for building a <span class="text-white">Model Context Protocol (MCP) server</span> that integrated public APIs with IDEs and Amazon Bedrock.</span>
-							</li>
-							<li class="flex gap-4 items-start">
-								<span class="inline-block w-1.5 h-1.5 bg-lime-400/50 mt-2 shrink-0 animate-pulse-opacity"></span>
-								<span>Designed and implemented <span class="text-white">AWS Step Function workflow</span> for distributed computing, reducing compute time from hours to under 18 minutes.</span>
-							</li>
-							<li class="flex gap-4 items-start">
-								<span class="inline-block w-1.5 h-1.5 bg-lime-400/50 mt-2 shrink-0 animate-pulse-opacity"></span>
-								<span>Developed a core <span class="text-white">Node.js utility library</span> adopted by multiple teams to standardize external integrations (HTTP, Database, S3).</span>
-							</li>
-						</ul>
-						<div class="flex flex-wrap gap-2 pt-4">
-							<TechBadge>TypeScript</TechBadge>
-							<TechBadge>Node.js</TechBadge>
-							<TechBadge>AWS</TechBadge>
-							<TechBadge>Java</TechBadge>
-							<TechBadge>MCP</TechBadge>
+				{sortedExperience.map(job => {
+					const { role, company, date, color, tags, bullets } = job.data;
+					const c = colorClasses[color as keyof typeof colorClasses];
+					
+					return (
+						<div class="scroll-fade-up opacity-0 translate-y-[50px] transition-all duration-700 ease-out grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-8 group">
+							<div class="font-mono tabular-nums">
+								<div class="text-lime-400 mb-2">{date}</div>
+								<div class="text-slate-400 uppercase tracking-widest text-xs mb-4">{company}</div>
+							</div>
+							<div class="space-y-6">
+								<h3 class={`font-sans font-bold text-3xl uppercase tracking-tight text-white ${c.groupHoverText} transition-colors`}>
+									{role}
+								</h3>
+								<ul class="font-mono text-slate-300 space-y-4 text-sm md:text-base leading-relaxed max-w-3xl">
+									{bullets.map(bullet => (
+										<li class="flex gap-4 items-start">
+											<span class={`inline-block w-1.5 h-1.5 ${c.bgDot} mt-2 shrink-0 animate-pulse-opacity`}></span>
+											<span set:html={bullet}></span>
+										</li>
+									))}
+								</ul>
+								<div class="flex flex-wrap gap-2 pt-4">
+									{tags.map(tag => (
+										<TechBadge>{tag}</TechBadge>
+									))}
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-
-				<!-- Job 2 -->
-				<div class="scroll-fade-up opacity-0 translate-y-[50px] transition-all duration-700 ease-out grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-8 group">
-					<div class="font-mono tabular-nums">
-						<div class="text-lime-400 mb-2">May 2022 — May 2023</div>
-						<div class="text-slate-400 uppercase tracking-widest text-xs mb-4">Genesys, USA</div>
-					</div>
-					<div class="space-y-6">
-						<h3 class="font-sans font-bold text-3xl uppercase tracking-tight text-white group-hover:text-pink-400 transition-colors">
-							Software Engineer Intern
-						</h3>
-						<ul class="font-mono text-slate-300 space-y-4 text-sm md:text-base leading-relaxed max-w-3xl">
-							<li class="flex gap-4 items-start">
-								<span class="inline-block w-1.5 h-1.5 bg-pink-400/50 mt-2 shrink-0 animate-pulse-opacity"></span>
-								<span>Led the successful migration of microservices from <span class="text-white">Hystrix to Resilience4j</span>, ensuring fault tolerance without disrupting production.</span>
-							</li>
-							<li class="flex gap-4 items-start">
-								<span class="inline-block w-1.5 h-1.5 bg-pink-400/50 mt-2 shrink-0 animate-pulse-opacity"></span>
-								<span>Decoupled testing architecture by enforcing strict separation of concerns, resulting in a more maintainable unit testing suite.</span>
-							</li>
-							<li class="flex gap-4 items-start">
-								<span class="inline-block w-1.5 h-1.5 bg-pink-400/50 mt-2 shrink-0 animate-pulse-opacity"></span>
-								<span>Streamlined a <span class="text-white">Kotlin library</span> to accommodate new features and introduce an efficient code reuse path.</span>
-							</li>
-						</ul>
-						<div class="flex flex-wrap gap-2 pt-4">
-							<TechBadge>Clojure</TechBadge>
-							<TechBadge>JavaScript</TechBadge>
-							<TechBadge>Microservices</TechBadge>
-							<TechBadge>AWS</TechBadge>
-							<TechBadge>Resilience4j</TechBadge>
-						</div>
-					</div>
-				</div>
-
-				<!-- Job 3 -->
-				<div class="scroll-fade-up opacity-0 translate-y-[50px] transition-all duration-700 ease-out grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-8 group">
-					<div class="font-mono tabular-nums">
-						<div class="text-lime-400 mb-2">Mar 2021 — Jun 2021</div>
-						<div class="text-slate-400 uppercase tracking-widest text-xs mb-4">Credence Analytics, India</div>
-					</div>
-					<div class="space-y-6">
-						<h3 class="font-sans font-bold text-3xl uppercase tracking-tight text-white group-hover:text-cyan-400 transition-colors">
-							Backend Developer
-						</h3>
-						<ul class="font-mono text-slate-300 space-y-4 text-sm md:text-base leading-relaxed max-w-3xl">
-							<li class="flex gap-4 items-start">
-								<span class="inline-block w-1.5 h-1.5 bg-cyan-400/50 mt-2 shrink-0 animate-pulse-opacity"></span>
-								<span>Collaborated with the CEO in building ERP system using <span class="text-white">Python, JavaScript, HTML, CSS, and SQL</span>.</span>
-							</li>
-							<li class="flex gap-4 items-start">
-								<span class="inline-block w-1.5 h-1.5 bg-cyan-400/50 mt-2 shrink-0 animate-pulse-opacity"></span>
-								<span>Deployed Application Monitoring System on Linux Instance using <span class="text-white">Elasticsearch</span> for effortless monitoring.</span>
-							</li>
-							<li class="flex gap-4 items-start">
-								<span class="inline-block w-1.5 h-1.5 bg-cyan-400/50 mt-2 shrink-0 animate-pulse-opacity"></span>
-								<span>Programmed support of Docker and Oracle database in existing CLI tool, cutting manual work by &gt;50%.</span>
-							</li>
-						</ul>
-						<div class="flex flex-wrap gap-2 pt-4">
-							<TechBadge>Python</TechBadge>
-							<TechBadge>SQL</TechBadge>
-							<TechBadge>Docker</TechBadge>
-							<TechBadge>Elasticsearch</TechBadge>
-							<TechBadge>Linux</TechBadge>
-						</div>
-					</div>
-				</div>
+					);
+				})}
 			</div>
 		</section>
 
