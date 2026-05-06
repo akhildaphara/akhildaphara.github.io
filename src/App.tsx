@@ -55,7 +55,7 @@ const TechBadge = ({ children }: TechBadgeProps) => (
   <motion.span 
     whileHover={{ scale: 1.1, y: -2 }}
     whileTap={{ scale: 0.95 }}
-    className="px-3 py-1 text-xs font-mono border border-slate-700 bg-slate-900/50 text-slate-300 rounded-sm uppercase tracking-wider hover:border-lime-400 hover:text-lime-400 hover:bg-lime-400/5 transition-all cursor-default"
+    className="px-3 py-1 text-xs font-mono border border-slate-700 bg-slate-900/50 text-slate-300 rounded-sm uppercase tracking-wider hover:border-lime-400 hover:text-lime-400 hover:bg-lime-400/5 transition-all cursor-pointer"
   >
     {children}
   </motion.span>
@@ -76,22 +76,22 @@ export default function App() {
       <div className="crt" />
       <div className="noise" />
 
-      <nav className="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50 mix-blend-difference">
-        <a href="#about" className="font-sans font-bold text-xl tracking-wider uppercase">
+      <nav className="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50 mix-blend-difference" role="navigation" aria-label="Main Navigation">
+        <a href="#about" className="font-sans font-bold text-xl tracking-wider uppercase focus-visible:outline-2 focus-visible:outline-cyan-400 outline-offset-4" aria-label="Akhil Daphara - Home">
           A.D<span className="text-lime-400">_</span>
         </a>
         <div className="hidden md:flex gap-8 font-mono text-sm">
-          <a href="#about" className="hover:text-cyan-400 transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-cyan)]">About</a>
-          <a href="#projects" className="hover:text-cyan-400 transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-cyan)]">Projects</a>
-          <a href="#experience" className="hover:text-cyan-400 transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-cyan)]">Experience</a>
-          <a href="https://akhildaphara.hashnode.dev/" target='_blank' rel="noreferrer" className="hover:text-cyan-400 transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-cyan)]">Blog</a>
+          <a href="#about" className="hover:text-cyan-400 transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-cyan)] focus-visible:text-cyan-400 outline-none" aria-label="About section">About</a>
+          <a href="#projects" className="hover:text-cyan-400 transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-cyan)] focus-visible:text-cyan-400 outline-none" aria-label="Projects section">Projects</a>
+          <a href="#experience" className="hover:text-cyan-400 transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-cyan)] focus-visible:text-cyan-400 outline-none" aria-label="Experience section">Experience</a>
+          <a href="https://akhildaphara.hashnode.dev/" target='_blank' rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-cyan)] focus-visible:text-cyan-400 outline-none" aria-label="Blog (opens in new tab)">Blog</a>
         </div>
       </nav>
 
-      <main className="relative z-10 px-6 md:px-12 lg:px-24 max-w-[1600px] mx-auto selection:bg-cyan-400 selection:text-white">
+      <main className="relative z-10 px-6 md:px-12 lg:px-24 max-w-[1600px] mx-auto selection:bg-cyan-400 selection:text-white" id="main-content" role="main">
 
         {/* HERO SECTION */}
-        <section id="about" className="min-h-screen flex flex-col justify-center pt-20 relative">
+        <section id="about" className="min-h-screen flex flex-col justify-center pt-20 relative" role="region" aria-label="About Me">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -103,7 +103,7 @@ export default function App() {
               <span>system.init()</span>
             </div>
 
-            <h1 className="font-sans font-bold text-4xl md:text-6xl lg:text-7xl xl:text-8xl uppercase tracking-wider leading-[0.85]">
+            <h1 className="font-sans font-bold text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl uppercase tracking-wider leading-[0.85]">
               <div className="overflow-hidden">
                 <motion.div
                   initial={{ y: "100%" }}
@@ -137,15 +137,17 @@ export default function App() {
             >
               <a
                 href="#projects"
-                                                className="font-mono text-sm bg-lime-400 text-black px-6 py-3 uppercase font-bold tracking-wider hover:bg-white transition-colors"
+                                                className="font-mono text-sm bg-lime-400 text-black px-6 py-3 uppercase font-bold tracking-wider hover:bg-white focus-visible:bg-white outline-none transition-colors"
+                aria-label="View project logs"
               >
                 View Logs //
               </a>
               <a
                 href="#connect"
-                                                className="font-mono text-sm border border-slate-700 text-slate-300 px-6 py-3 uppercase tracking-wider hover:border-lime-400 hover:text-lime-400 transition-colors flex items-center gap-2"
+                                                className="font-mono text-sm border border-slate-700 text-slate-300 px-6 py-3 uppercase tracking-wider hover:border-lime-400 hover:text-lime-400 focus-visible:text-lime-400 outline-none transition-colors flex items-center gap-2"
+                aria-label="Connect with me"
               >
-                <Mail size={16} /> Connect
+                <Mail size={16} aria-hidden="true" /> Connect
               </a>
             </motion.div>
           </motion.div>
@@ -158,13 +160,15 @@ export default function App() {
         </section>
 
         {/* PROJECTS SECTION */}
-        <section id="projects" className="py-32 relative">
+        <section id="projects" className="py-[clamp(4rem,12vh,8rem)] relative" role="region" aria-label="Selected Projects">
           <SectionHeading>Projects</SectionHeading>
 
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8">
             {/* Project 1 - Large */}
-            <a href="https://endless-scrabble-13a74.web.app/" target="_blank" rel="noopener noreferrer" className="md:col-span-4">
+            <a href="https://endless-scrabble-13a74.web.app/" target="_blank" rel="noopener noreferrer" className="sm:col-span-2 lg:col-span-4" aria-label="Endless Scrabble Project (opens in new tab)">
               <motion.div
+                whileHover={{ y: -5 }}
+                whileTap={{ scale: 0.98 }}
                 className="group border border-primary-light/50 bg-primary-base/50 p-8 hover:border-pink-400/50 transition-colors relative overflow-hidden h-full"
               >
                 <div className="absolute top-0 right-0 w-48 h-48 bg-pink-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
@@ -190,8 +194,10 @@ export default function App() {
             </a>
 
             {/* Project 5 - New project */}
-            <a href="https://backend-mystery.web.app" target="_blank" rel="noopener noreferrer" className="md:col-span-2">
+            <a href="https://backend-mystery.web.app" target="_blank" rel="noopener noreferrer" className="sm:col-span-1 lg:col-span-2" aria-label="Backend Mystery Project (opens in new tab)">
               <motion.div
+                whileHover={{ y: -5 }}
+                whileTap={{ scale: 0.98 }}
                 className="group border border-primary-light/50 bg-primary-base/50 p-8 hover:border-lime-400/50 transition-colors relative overflow-hidden h-full"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-lime-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
@@ -215,18 +221,17 @@ export default function App() {
             </a>
 
             {/* Project 2 - Full Row */}
-            <a href="https://monet-3d69d.web.app/" target="_blank" rel="noopener noreferrer" className="md:col-span-6">
+            <a href="https://monet-3d69d.web.app/" target="_blank" rel="noopener noreferrer" className="sm:col-span-2 lg:col-span-6" aria-label="Monet Project (opens in new tab)">
               <motion.div
+                whileHover={{ y: -5 }}
+                whileTap={{ scale: 0.98 }}
                 className="group border border-primary-light/50 bg-primary-base/50 p-8 hover:border-lime-400/50 transition-colors relative overflow-hidden h-full"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-lime-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
                 <div className="font-mono text-lime-400 mb-4 flex justify-between items-center">
                   <CreditCard size={24} />
                   <span className="text-[10px] uppercase flex items-center gap-2">
-                    <span className="flex items-center">
-                      <span className="lowercase font-bold">i</span>
-                      <span className="tracking-widest">OS APP</span>
-                    </span>
+                    <span className="lowercase font-bold">i</span><span className="tracking-widest">OS APP</span>
                     <ExternalLink size={14} />
                   </span>
                 </div>
@@ -248,8 +253,10 @@ export default function App() {
             </a>
 
             {/* Project 3 - Half Row */}
-            <a href="https://credence-docs.gitlab.io/credcli/" target="_blank" rel="noopener noreferrer" className="md:col-span-3">
+            <a href="https://credence-docs.gitlab.io/credcli/" target="_blank" rel="noopener noreferrer" className="sm:col-span-1 lg:col-span-3" aria-label="CLI App Project (opens in new tab)">
               <motion.div
+                whileHover={{ y: -5 }}
+                whileTap={{ scale: 0.98 }}
                 className="group border border-primary-light/50 bg-primary-base/50 p-8 hover:border-cyan-400/50 transition-colors relative overflow-hidden h-full"
               >
                 <div className="absolute top-0 right-0 w-40 h-40 bg-cyan-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
@@ -273,8 +280,10 @@ export default function App() {
             </a>
 
             {/* Project 4 - Half Row */}
-            <a href="https://www.npmjs.com/package/@credenceanalytics/parsifier" target="_blank" rel="noopener noreferrer" className="md:col-span-3">
+            <a href="https://www.npmjs.com/package/@credenceanalytics/parsifier" target="_blank" rel="noopener noreferrer" className="sm:col-span-1 lg:col-span-3" aria-label="Parsifier Project (opens in new tab)">
               <motion.div
+                whileHover={{ y: -5 }}
+                whileTap={{ scale: 0.98 }}
                 className="group border border-primary-light/50 bg-primary-base/50 p-8 hover:border-pink-400/50 transition-colors relative overflow-hidden h-full"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-pink-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
@@ -300,7 +309,7 @@ export default function App() {
         </section>
 
         {/* EXPERIENCE SECTION */}
-        <section id="experience" className="py-32 relative">
+        <section id="experience" className="py-[clamp(4rem,12vh,8rem)] relative" role="region" aria-label="Professional Experience">
           <SectionHeading>Experience</SectionHeading>
 
           <div className="space-y-24">
@@ -468,7 +477,7 @@ export default function App() {
         </section>
 
         {/* EDUCATION SECTION */}
-        <section id="education" className="py-32 relative">
+        <section id="education" className="py-[clamp(4rem,12vh,8rem)] relative" role="region" aria-label="Academic Background">
           <SectionHeading>Education</SectionHeading>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -505,22 +514,22 @@ export default function App() {
         </section>
 
         {/* FOOTER */}
-        <footer id="connect" className="py-24 border-t border-slate-800 mt-20 flex flex-col md:flex-row justify-between items-center gap-8">
+        <footer id="connect" className="py-[clamp(3rem,8vh,6rem)] border-t border-slate-800 mt-20 flex flex-col md:flex-row justify-between items-center gap-8" role="contentinfo" aria-label="Connect with me">
           <div className="font-sans font-bold text-2xl uppercase tracking-wider">
             Akhil Daphara
           </div>
 
-          <div className="flex gap-6 items-center">
-            <a href="https://linkedin.com/in/akhildaphara" target="_blank" rel="noreferrer"  className="text-slate-300 hover:text-lime-400 transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-lime)]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          <div className="flex gap-8 items-center">
+            <a href="https://linkedin.com/in/akhildaphara" target="_blank" rel="noopener noreferrer"  className="p-2 -m-2 text-slate-300 hover:text-lime-400 focus-visible:text-lime-400 outline-none transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-lime)] active:scale-90" aria-label="LinkedIn Profile">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
-            <a href="https://github.com/akhildaphara" target="_blank" rel="noreferrer" className="text-slate-300 hover:text-pink-400 transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-pink)]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <a href="https://github.com/akhildaphara" target="_blank" rel="noopener noreferrer" className="p-2 -m-2 text-slate-300 hover:text-pink-400 focus-visible:text-pink-400 outline-none transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-pink)] active:scale-90" aria-label="GitHub Profile">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
             </a>
-            <a href="mailto:akhildaphara@gmail.com"  className="text-slate-300 hover:text-cyan-400 transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-cyan)]">
-              <Mail size={24} />
+            <a href="mailto:akhildaphara@gmail.com"  className="p-2 -m-2 text-slate-300 hover:text-cyan-400 focus-visible:text-cyan-400 outline-none transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-cyan)] active:scale-90" aria-label="Send Email">
+              <Mail size={24} aria-hidden="true" />
             </a>
-            <a href="tel:7744189117"  className="font-mono text-slate-300 hover:text-pink-400 transition-colors">
+            <a href="tel:7744189117"  className="p-2 -m-2 font-mono text-slate-300 hover:text-pink-400 focus-visible:text-pink-400 outline-none transition-colors active:opacity-70" aria-label="Call me">
               774-418-9117
             </a>
           </div>
