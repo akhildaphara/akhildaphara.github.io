@@ -76,7 +76,7 @@ export default function App() {
       <div className="crt" />
       <div className="noise" />
 
-      <nav className="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50 mix-blend-difference" role="navigation" aria-label="Main Navigation">
+      <nav className="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50 bg-primary-dark/80 backdrop-blur-md border-b border-white/5" role="navigation" aria-label="Main Navigation">
         <a href="#about" className="font-sans font-bold text-xl tracking-wider uppercase focus-visible:outline-2 focus-visible:outline-cyan-400 outline-offset-4" aria-label="Akhil Daphara - Home">
           A.D<span className="text-lime-400">_</span>
         </a>
@@ -194,7 +194,7 @@ export default function App() {
             </a>
 
             {/* Project 5 - New project */}
-            <a href="https://backend-mystery.web.app" target="_blank" rel="noopener noreferrer" className="sm:col-span-1 lg:col-span-2" aria-label="Backend Mystery Project (opens in new tab)">
+            <a href="https://backend-mystery.web.app" target="_blank" rel="noopener noreferrer" className="sm:col-span-2 lg:col-span-2" aria-label="Backend Mystery Project (opens in new tab)">
               <motion.div
                 whileHover={{ y: -5 }}
                 whileTap={{ scale: 0.98 }}
