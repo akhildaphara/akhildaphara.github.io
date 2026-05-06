@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, ExternalLink, GraduationCap, SpellCheck, CreditCard, Terminal, Package } from 'lucide-react';
+import { Mail, ExternalLink, GraduationCap, SpellCheck, CreditCard, Terminal, Package, Laptop } from 'lucide-react';
 
 interface TypewriterTextProps { text: string; delay?: number; className?: string; }
 const TypewriterText = ({ text, delay = 0, className = "" }: TypewriterTextProps) => {
@@ -161,22 +161,23 @@ export default function App() {
         <section id="projects" className="py-32 relative">
           <SectionHeading>Projects</SectionHeading>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <a href="https://endless-scrabble-13a74.web.app/" target="_blank" rel="noopener noreferrer">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
+            {/* Project 1 - Large */}
+            <a href="https://endless-scrabble-13a74.web.app/" target="_blank" rel="noopener noreferrer" className="md:col-span-4">
               <motion.div
                 className="group border border-primary-light/50 bg-primary-base/50 p-8 hover:border-pink-400/50 transition-colors relative overflow-hidden h-full"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-pink-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
+                <div className="absolute top-0 right-0 w-48 h-48 bg-pink-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
                 <div className="font-mono text-pink-400 mb-4 flex justify-between items-center">
-                  <SpellCheck size={24} />
-                  <span className="text-xs tracking-widest uppercase flex items-center gap-2">
-                    Project <ExternalLink size={16} />
+                  <SpellCheck size={32} />
+                  <span className="text-[10px] tracking-widest uppercase flex items-center gap-2">
+                    Web-App <ExternalLink size={14} />
                   </span>
                 </div>
-                <h3 className="font-sans font-bold text-2xl uppercase mb-4 text-slate-100 group-hover:text-pink-400 transition-colors">
+                <h3 className="font-sans font-bold text-3xl uppercase mb-4 text-slate-100 group-hover:text-pink-400 transition-colors">
                   Endless Scrabble
                 </h3>
-                <p className="font-mono text-slate-300 text-sm mb-6 line-clamp-3 leading-relaxed max-w-prose">
+                <p className="font-mono text-slate-300 text-base mb-6 leading-relaxed max-w-prose">
                   A massively multiplayer infinite Scrabble game on a shared, endless canvas. All players build on the same board in real time.
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -188,22 +189,55 @@ export default function App() {
               </motion.div>
             </a>
 
-            <a href="https://monet-3d69d.web.app/" target="_blank" rel="noopener noreferrer">
+            {/* Project 5 - New project */}
+            <a href="https://backend-mystery.web.app" target="_blank" rel="noopener noreferrer" className="md:col-span-2">
+              <motion.div
+                className="group border border-primary-light/50 bg-primary-base/50 p-8 hover:border-lime-400/50 transition-colors relative overflow-hidden h-full"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-lime-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
+                <div className="font-mono text-lime-400 mb-4 flex justify-between items-center">
+                  <Laptop size={24} />
+                  <span className="text-[10px] tracking-widest uppercase flex items-center gap-2">
+                    Web-App <ExternalLink size={14} />
+                  </span>
+                </div>
+                <h3 className="font-sans font-bold text-2xl uppercase mb-4 text-slate-100 group-hover:text-lime-400 transition-colors">
+                  Backend Mystery
+                </h3>
+                <p className="font-mono text-slate-300 text-sm mb-6 leading-relaxed">
+                  An interactive learning platform designed to demystify backend programming fundamentals through flashcards.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <TechBadge>React</TechBadge>
+                  <TechBadge>Education</TechBadge>
+                </div>
+              </motion.div>
+            </a>
+
+            {/* Project 2 - Full Row */}
+            <a href="https://monet-3d69d.web.app/" target="_blank" rel="noopener noreferrer" className="md:col-span-6">
               <motion.div
                 className="group border border-primary-light/50 bg-primary-base/50 p-8 hover:border-lime-400/50 transition-colors relative overflow-hidden h-full"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-lime-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
                 <div className="font-mono text-lime-400 mb-4 flex justify-between items-center">
                   <CreditCard size={24} />
-                  <span className="text-xs tracking-widest uppercase flex items-center gap-2">
-                    Project <ExternalLink size={16} />
+                  <span className="text-[10px] uppercase flex items-center gap-2">
+                    <span className="flex items-center">
+                      <span className="lowercase font-bold">i</span>
+                      <span className="tracking-widest">OS APP</span>
+                    </span>
+                    <ExternalLink size={14} />
                   </span>
                 </div>
-                <h3 className="font-sans font-bold text-2xl uppercase mb-4 text-slate-100 group-hover:text-lime-400 transition-colors">
+                <h3 className="font-sans font-bold text-2xl uppercase mb-4 text-slate-100 group-hover:text-lime-400 transition-colors flex items-center gap-3">
                   Monet
+                  <span className="px-2 py-0.5 bg-lime-400 text-black text-[10px] font-bold rounded-sm tracking-normal">
+                    COMING SOON
+                  </span>
                 </h3>
-                <p className="font-mono text-slate-300 text-sm mb-6 line-clamp-3 leading-relaxed max-w-prose">
-                  The mathematically perfect way to play the credit cards points game.
+                <p className="font-mono text-slate-300 text-sm mb-6 leading-relaxed max-w-prose">
+                  The mathematically perfect way to play the credit cards points game. Optimize your rewards with precision.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <TechBadge>React</TechBadge>
@@ -213,48 +247,48 @@ export default function App() {
               </motion.div>
             </a>
 
-
-            <a href="https://credence-docs.gitlab.io/credcli/" target="_blank" rel="noopener noreferrer">
+            {/* Project 3 - Half Row */}
+            <a href="https://credence-docs.gitlab.io/credcli/" target="_blank" rel="noopener noreferrer" className="md:col-span-3">
               <motion.div
                 className="group border border-primary-light/50 bg-primary-base/50 p-8 hover:border-cyan-400/50 transition-colors relative overflow-hidden h-full"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
+                <div className="absolute top-0 right-0 w-40 h-40 bg-cyan-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
                 <div className="font-mono text-cyan-400 mb-4 flex justify-between items-center">
-                  <Terminal size={24} />
-                  <span className="text-xs tracking-widest uppercase flex items-center gap-2">
-                    Project <ExternalLink size={16} />
+                  <Terminal size={28} />
+                  <span className="text-[10px] tracking-widest uppercase flex items-center gap-2">
+                    Developer Tool <ExternalLink size={14} />
                   </span>
                 </div>
                 <h3 className="font-sans font-bold text-2xl uppercase mb-4 text-slate-100 group-hover:text-cyan-400 transition-colors">
-                  CLI App for Version Control
+                  CLI App
                 </h3>
-                <p className="font-mono text-slate-300 text-sm mb-6 line-clamp-3 leading-relaxed max-w-prose">
-                  A NodeJS CLI tool to automate version control with extensive unit testing.
+                <p className="font-mono text-slate-300 text-sm mb-6 leading-relaxed">
+                  A robust NodeJS CLI tool designed to automate complex version control workflows with extensive unit testing coverage.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <TechBadge>NodeJS</TechBadge>
                   <TechBadge>Git</TechBadge>
-                  <TechBadge>Unit Tests</TechBadge>
                 </div>
               </motion.div>
             </a>
 
-            <a href="https://www.npmjs.com/package/@credenceanalytics/parsifier" target="_blank" rel="noopener noreferrer">
+            {/* Project 4 - Half Row */}
+            <a href="https://www.npmjs.com/package/@credenceanalytics/parsifier" target="_blank" rel="noopener noreferrer" className="md:col-span-3">
               <motion.div
                 className="group border border-primary-light/50 bg-primary-base/50 p-8 hover:border-pink-400/50 transition-colors relative overflow-hidden h-full"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-pink-400/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
                 <div className="font-mono text-pink-400 mb-4 flex justify-between items-center">
                   <Package size={24} />
-                  <span className="text-xs tracking-widest uppercase flex items-center gap-2">
-                    Project <ExternalLink size={16} />
+                  <span className="text-[10px] tracking-widest uppercase flex items-center gap-2">
+                    Library <ExternalLink size={14} />
                   </span>
                 </div>
                 <h3 className="font-sans font-bold text-2xl uppercase mb-4 text-slate-100 group-hover:text-pink-400 transition-colors">
                   Parsifier
                 </h3>
-                <p className="font-mono text-slate-300 text-sm mb-6 line-clamp-3 leading-relaxed max-w-prose">
-                  Published "Parsifier" NPM package to modify config files, eliminating manual work.
+                <p className="font-mono text-slate-300 text-sm mb-6 leading-relaxed">
+                  Published NPM package to modify configuration files programmatically, eliminating manual intervention in build pipelines.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <TechBadge>NodeJS</TechBadge>
@@ -472,7 +506,7 @@ export default function App() {
 
         {/* FOOTER */}
         <footer id="connect" className="py-24 border-t border-slate-800 mt-20 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="font-sans font-bold text-2xl uppercase tracking-tighter">
+          <div className="font-sans font-bold text-2xl uppercase tracking-wider">
             Akhil Daphara
           </div>
 
