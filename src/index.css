@@ -35,6 +35,14 @@
   }
 }
 
+@keyframes pulse-opacity {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+.animate-pulse-opacity {
+  animation: pulse-opacity 2s ease-in-out infinite;
+}
+
 /* Stable Grid Paper Effect */
 .crt::before {
   content: "";

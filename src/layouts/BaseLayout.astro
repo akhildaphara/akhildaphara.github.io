@@ -1,0 +1,66 @@
+---
+import '../index.css';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akhil Daphara - Software Engineer</title>
+    <meta name="description" content="Software Engineer based in Boston, MA. Specializing in backend systems, AWS, Node.js, and AI assisted development." />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#020617] text-slate-100 selection:bg-cyan-400 selection:text-white">
+    <div class="crt"></div>
+    <div class="noise"></div>
+    
+    <slot />
+    
+    <script>
+      console.log(
+        "%c> system.init() %c\nWelcome, explorer. I see you're checking the logs. Looking for someone with an eye for detail? Let's connect.",
+        "color: #a3e635; font-weight: bold; font-size: 14px;",
+        "color: #94a3b8; font-size: 12px;"
+      );
+
+      // Scroll Fade Up animations
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('opacity-0', 'translate-y-[50px]', 'translate-y-[20px]');
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '-100px' });
+
+      document.querySelectorAll('.scroll-fade-up').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Hero animations
+      setTimeout(() => {
+        document.querySelectorAll('.hero-fade-in').forEach(el => {
+          el.classList.remove('opacity-0', 'translate-y-[20px]');
+          el.classList.add('opacity-100', 'translate-y-0');
+        });
+        document.querySelectorAll('.hero-slide-up').forEach(el => {
+          el.classList.remove('translate-y-[100%]');
+          el.classList.add('translate-y-0');
+        });
+      }, 100);
+
+      setTimeout(() => {
+        document.querySelectorAll('.hero-fade-in-delayed').forEach(el => {
+          el.classList.remove('opacity-0');
+          el.classList.add('opacity-100');
+        });
+      }, 2500);
+    </script>
+  </body>
+</html>
