@@ -544,9 +544,6 @@ export default function App() {
             <a href="mailto:akhildaphara@gmail.com"  className="p-2 -m-2 text-slate-300 hover:text-cyan-400 focus-visible:text-cyan-400 outline-none transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-cyan)] active:scale-90" aria-label="Send Email">
               <Mail size={24} aria-hidden="true" />
             </a>
-            <a href="tel:7744189117"  className="p-2 -m-2 font-mono text-slate-300 hover:text-pink-400 focus-visible:text-pink-400 outline-none transition-colors active:opacity-70" aria-label="Call me">
-              774-418-9117
-            </a>
           </div>
         </footer>
 
