@@ -38,6 +38,10 @@
           "type": "boolean",
           "default": false
         },
+        "isBeta": {
+          "type": "boolean",
+          "default": false
+        },
         "featured": {
           "type": "boolean",
           "default": false

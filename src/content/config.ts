@@ -12,6 +12,7 @@ const projects = defineCollection({
     color: z.enum(['pink', 'lime', 'cyan']),
     colSpan: z.string(),
     comingSoon: z.boolean().default(false),
+    isBeta: z.boolean().default(false),
     featured: z.boolean().default(false),
     description: z.string(),
     tags: z.array(z.string()),
