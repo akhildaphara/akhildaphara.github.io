@@ -80,7 +80,7 @@ const colorClasses = {
 								<div class={`font-mono ${c.text} mb-4 flex justify-between items-center`}>
 									<Icon size={iconSize} />
 									<span class="text-[10px] tracking-widest uppercase flex items-center gap-2">
-										<Fragment set:html={typeHtml} /> <ExternalLink size={14} />
+										<span><Fragment set:html={typeHtml} /></span> <ExternalLink size={14} />
 									</span>
 								</div>
 								<h3 class={`font-sans font-bold uppercase mb-4 text-slate-100 ${c.groupHoverText} transition-colors ${comingSoon ? 'flex items-center gap-3' : ''} ${featured ? 'text-3xl' : 'text-2xl'}`}>
