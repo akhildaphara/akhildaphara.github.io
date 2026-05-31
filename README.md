@@ -2,7 +2,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/akhildaphara/akhildaphara.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/akhildaphara/akhildaphara.github.io/actions/workflows/deploy.yml)
 
-A modern, minimalist portfolio website built with React, Vite, and Tailwind CSS. Features smooth animations, dark terminal aesthetic, and automatic deployment to GitHub Pages.
+A modern, content-driven portfolio built with Astro and Tailwind CSS. Static-first with a near-zero JS footprint, a terminal/blueprint aesthetic, and automatic deployment to GitHub Pages.
 
 ## Live Demo
 
@@ -10,21 +10,21 @@ A modern, minimalist portfolio website built with React, Vite, and Tailwind CSS.
 
 ## Tech Stack
 
-- **React 19** - UI framework
-- **Vite** - Fast build tool and dev server
-- **Tailwind CSS v4** - Utility-first styling
-- **Framer Motion** - Scroll-triggered reveals and animations
+- **Astro 5** - Static site generation with islands architecture
+- **Tailwind CSS v4** - Utility-first styling via `@tailwindcss/vite`
+- **React 19** - Used only for stateful islands (e.g. the hero typewriter)
+- **Framer Motion** - Animation for React islands
 - **Lucide React** - Consistent SVG icons
-- **TypeScript** - Type safety
+- **TypeScript** - Type safety and content collection schemas
 
 ## Features
 
-- Smooth scroll animations with Framer Motion
-- Typing animations for hero section
-- CRT scan lines and noise overlay for terminal feel
-- Fully responsive design
+- Data-driven content via Astro Content Collections (projects + experience)
+- Scroll-triggered reveals with a lightweight `IntersectionObserver`
+- Typing animation for the hero section
+- CRT grid and noise overlays for a terminal feel
+- Responsive layout
 - Automatic builds and deploys on commit
-- Optimized for fast loading
 
 ## Getting Started
 
@@ -36,18 +36,13 @@ A modern, minimalist portfolio website built with React, Vite, and Tailwind CSS.
 ### Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/akhildaphara/akhildaphara.github.io.git
 cd akhildaphara.github.io
-
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
 ```
 
-The site will be available at `http://localhost:5173/portfolio/`.
+The dev server runs at `http://localhost:4321/`.
 
 ### Building
 
@@ -61,26 +56,33 @@ This creates optimized production files in the `dist/` folder.
 
 ```
 src/
-├── App.tsx         # Main React component
-├── index.css       # Global styles and CSS variables
-└── main.tsx        # React entry point
+├── components/
+│   ├── astro/        # Static UI (Navbar, SectionHeading, TechBadge)
+│   └── react/        # Stateful islands (TypewriterText)
+├── content/
+│   ├── config.ts     # Zod schemas for collections
+│   ├── projects/     # One markdown file per project
+│   └── experience/   # One markdown file per role
+├── layouts/
+│   └── BaseLayout.astro
+├── pages/
+│   └── index.astro   # The single page, rendered from collections
+└── index.css         # Theme tokens and global styles
 
 public/
-├── favicon.svg     # Site favicon
-└── 404.html        # Custom 404 page
+├── favicon.svg       # Site favicon
+├── icons.svg         # SVG sprite
+└── 404.html          # Custom 404 page
 
 .github/workflows/
-└── deploy.yml      # GitHub Actions deployment workflow
+└── deploy.yml        # GitHub Actions deployment workflow
 ```
+
+To add or edit a project or job, create/modify a markdown file in `src/content/`. Do not hardcode entries in `index.astro`.
 
 ## Deployment
 
-This project automatically deploys to GitHub Pages whenever you push to the `source` branch.
-
-The GitHub Actions workflow:
-1. Builds the React app with Vite
-2. Pushes the compiled files to the `master` branch
-3. GitHub Pages serves the website from the `master` branch
+Pushing to the `source` branch triggers `.github/workflows/deploy.yml`, which builds the site and publishes `dist/` to the `master` branch for GitHub Pages. Never push to `master` manually.
 
 ## License
 
