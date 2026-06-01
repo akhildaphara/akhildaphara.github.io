@@ -13,6 +13,9 @@ dist-ssr/
 # Vite cache
 .vite/
 
+# Astro generated cache & types
+.astro/
+
 # IDE & Editor
 .vscode/
 .idea/

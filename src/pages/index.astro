@@ -4,8 +4,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/astro/Navbar.astro';
 import SectionHeading from '../components/astro/SectionHeading.astro';
 import TechBadge from '../components/astro/TechBadge.astro';
-import { TypewriterText } from '../components/react/TypewriterText';
-import { Mail, ExternalLink, GraduationCap, SpellCheck, CreditCard, Terminal, Package, Laptop } from 'lucide-react';
+import { Mail, ExternalLink, GraduationCap, SpellCheck, CreditCard, Terminal, Package, Laptop, FileText } from 'lucide-react';
+
+const heroText = "> Software Engineer.\n> Specializing in backend systems, AWS, Node.js, and AI assisted development.";
+const resumeUrl = "/Akhil_Daphara_Resume.pdf";
 
 const allProjects = await getCollection('projects');
 const sortedProjects = allProjects.sort((a, b) => a.data.order - b.data.order);
@@ -44,7 +46,12 @@ const colorClasses = {
 					</div>
 				</h1>
 
-				<div class="font-mono text-slate-300 text-lg md:text-xl max-w-2xl mt-8"><TypewriterText client:load text={"> Software Engineer based in Boston, MA.\n> Specializing in backend systems, AWS, Node.js, and AI assisted development."} delay={1} /></div>
+				<div class="font-mono text-slate-300 text-lg md:text-xl max-w-2xl mt-8">
+					<div class="grid">
+						<span aria-hidden="true" class="invisible pointer-events-none select-none [grid-area:1/1] whitespace-pre-wrap">{heroText}</span>
+						<span class="[grid-area:1/1] whitespace-pre-wrap"><span class="hero-typed" data-typewriter-delay="800">{heroText}</span><span class="type-cursor" aria-hidden="true"></span></span>
+					</div>
+				</div>
 
 				<div class="hero-fade-in-delayed opacity-0 transition-opacity duration-1000 ease-out flex gap-4 pt-12">
 					<a href="#projects" class="font-mono text-sm bg-lime-400 text-black px-6 py-3 uppercase font-bold tracking-wider hover:bg-white transition-colors">
@@ -96,7 +103,7 @@ const colorClasses = {
 										</span>
 									)}
 								</h3>
-								<p class={`font-mono text-slate-300 mb-6 leading-relaxed max-w-prose ${featured ? 'text-base' : 'text-sm'}`}>
+								<p class={`font-body text-slate-300 mb-6 leading-relaxed max-w-prose ${featured ? 'text-base' : 'text-sm'}`}>
 									{description}
 								</p>
 								<div class="flex flex-wrap gap-2">
@@ -130,7 +137,7 @@ const colorClasses = {
 								<h3 class={`font-sans font-bold text-3xl uppercase tracking-tight text-white ${c.groupHoverText} transition-colors`}>
 									{role}
 								</h3>
-								<ul class="font-mono text-slate-300 space-y-4 text-sm md:text-base leading-relaxed max-w-3xl">
+								<ul class="font-body text-slate-300 space-y-4 text-sm md:text-base leading-relaxed max-w-3xl">
 									{bullets.map(bullet => (
 										<li class="flex gap-4 items-start">
 											<span class={`inline-block w-1.5 h-1.5 ${c.bgDot} mt-2 shrink-0 animate-pulse-opacity`}></span>
@@ -189,9 +196,13 @@ const colorClasses = {
 				</div>
 				<h2 class="font-sans font-bold text-5xl md:text-7xl mb-8 tracking-tight text-white uppercase">Let's connect</h2>
 				
-				<p class="font-mono text-slate-300 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed">
+				<p class="font-body text-slate-300 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed">
 					I'm always open to discussing new opportunities, interesting projects, or just having a conversation about tech. Feel free to reach out.
 				</p>
+
+				<a href={resumeUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-mono text-sm bg-lime-400 text-black px-6 py-3 uppercase font-bold tracking-wider hover:bg-white focus-visible:bg-white outline-none transition-colors mb-12">
+					<FileText size={16} aria-hidden="true" /> Download Resume
+				</a>
 
 				<div class="space-y-6 mb-12">
 					<a href="mailto:akhildaphara@gmail.com" class="flex items-center gap-4 text-slate-300 hover:text-cyan-400 transition-colors group w-fit">
@@ -218,4 +229,26 @@ const colorClasses = {
 		</footer>
 
 	</main>
+
+	<script>
+		function runTypewriter() {
+			const el = document.querySelector<HTMLElement>('.hero-typed');
+			if (!el) return;
+			const full = el.textContent || '';
+			const delay = Number(el.getAttribute('data-typewriter-delay')) || 0;
+			if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+			el.textContent = '';
+			let i = 0;
+			const type = () => {
+				el.textContent = full.slice(0, i);
+				if (i < full.length) {
+					i++;
+					setTimeout(type, 30);
+				}
+			};
+			setTimeout(type, delay);
+		}
+		runTypewriter();
+		document.addEventListener('astro:page-load', runTypewriter);
+	</script>
 </BaseLayout>

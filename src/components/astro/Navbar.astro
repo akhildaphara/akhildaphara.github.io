@@ -1,15 +1,78 @@
 ---
 // Navbar.astro
+const links = [
+  { href: '#about', label: 'About', aria: 'About section' },
+  { href: '#projects', label: 'Projects', aria: 'Projects section' },
+  { href: '#experience', label: 'Experience', aria: 'Experience section' },
+  { href: '#connect', label: 'Contact', aria: 'Contact section' },
+  { href: 'https://akhildaphara.hashnode.dev/', label: 'Blog', aria: 'Blog (opens in new tab)', external: true },
+];
+const resumeUrl = '/Akhil_Daphara_Resume.pdf';
 ---
-<nav class="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5" role="navigation" aria-label="Main Navigation">
-  <a href="#about" class="font-sans font-bold text-xl tracking-wider uppercase focus-visible:outline-2 focus-visible:outline-cyan-400 outline-offset-4" aria-label="Akhil Daphara - Home">
-    A.D<span class="text-lime-400">_</span>
-  </a>
-  <div class="hidden md:flex gap-8 font-mono text-sm">
-    <a href="#about" class="hover:text-cyan-400 transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-cyan)] focus-visible:text-cyan-400 outline-none" aria-label="About section">About</a>
-    <a href="#projects" class="hover:text-cyan-400 transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-cyan)] focus-visible:text-cyan-400 outline-none" aria-label="Projects section">Projects</a>
-    <a href="#experience" class="hover:text-cyan-400 transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-cyan)] focus-visible:text-cyan-400 outline-none" aria-label="Experience section">Experience</a>
-    <a href="#connect" class="hover:text-cyan-400 transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-cyan)] focus-visible:text-cyan-400 outline-none" aria-label="Contact section">Contact</a>
-    <a href="https://akhildaphara.hashnode.dev/" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-cyan)] focus-visible:text-cyan-400 outline-none" aria-label="Blog (opens in new tab)">Blog</a>
+<nav class="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5" role="navigation" aria-label="Main Navigation">
+  <div class="p-6 flex justify-between items-center">
+    <a href="#about" class="font-sans font-bold text-xl tracking-wider uppercase focus-visible:outline-2 focus-visible:outline-cyan-400 outline-offset-4" aria-label="Akhil Daphara - Home">
+      A.D<span class="text-lime-400">_</span>
+    </a>
+
+    <div class="hidden md:flex gap-8 font-mono text-sm items-center">
+      {links.map(link => (
+        <a
+          href={link.href}
+          {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+          class="hover:text-cyan-400 transition-colors hover:[text-shadow:0_0_8px_var(--color-accent-cyan)] focus-visible:text-cyan-400 outline-none"
+          aria-label={link.aria}
+        >{link.label}</a>
+      ))}
+      <a href={resumeUrl} target="_blank" rel="noopener noreferrer" class="border border-lime-400 text-lime-400 px-3 py-1.5 uppercase tracking-wider hover:bg-lime-400 hover:text-black focus-visible:bg-lime-400 focus-visible:text-black outline-none transition-colors" aria-label="Download resume (opens in new tab)">Resume</a>
+    </div>
+
+    <button
+      id="menu-toggle"
+      type="button"
+      class="md:hidden text-slate-100 p-2 -m-2 focus-visible:outline-2 focus-visible:outline-cyan-400 outline-offset-2"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      <svg class="menu-icon-close hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 font-mono text-sm">
+    {links.map(link => (
+      <a
+        href={link.href}
+        {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        class="mobile-link block px-6 py-4 border-b border-white/5 text-slate-300 hover:text-cyan-400 hover:bg-white/5 focus-visible:text-cyan-400 outline-none transition-colors uppercase tracking-wider"
+        aria-label={link.aria}
+      >{link.label}</a>
+    ))}
+    <a href={resumeUrl} target="_blank" rel="noopener noreferrer" class="mobile-link block px-6 py-4 text-lime-400 hover:bg-lime-400/10 focus-visible:bg-lime-400/10 outline-none transition-colors uppercase tracking-wider font-bold" aria-label="Download resume (opens in new tab)">Resume ↓</a>
   </div>
 </nav>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = toggle?.querySelector('.menu-icon-open');
+  const iconClose = toggle?.querySelector('.menu-icon-close');
+
+  function setOpen(open: boolean) {
+    if (!toggle || !menu || !iconOpen || !iconClose) return;
+    menu.classList.toggle('hidden', !open);
+    iconOpen.classList.toggle('hidden', open);
+    iconClose.classList.toggle('hidden', !open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+
+  toggle?.addEventListener('click', () => {
+    setOpen(menu?.classList.contains('hidden') ?? false);
+  });
+
+  menu?.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+</script>
