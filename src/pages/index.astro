@@ -4,9 +4,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/astro/Navbar.astro';
 import SectionHeading from '../components/astro/SectionHeading.astro';
 import TechBadge from '../components/astro/TechBadge.astro';
-import { Mail, ExternalLink, GraduationCap, SpellCheck, CreditCard, Terminal, Package, Laptop, FileText } from 'lucide-react';
+import Icon from '../components/astro/Icon.astro';
 
-const heroText = "> Software Engineer.\n> Specializing in backend systems, AWS, Node.js, and AI assisted development.";
+const heroText = "> Software Engineer based in Boston, MA.\n> Specializing in backend systems, AWS, Node.js, and AI assisted development.";
 const resumeUrl = "/Akhil_Daphara_Resume.pdf";
 
 const allProjects = await getCollection('projects');
@@ -14,8 +14,6 @@ const sortedProjects = allProjects.sort((a, b) => a.data.order - b.data.order);
 
 const allExperience = await getCollection('experience');
 const sortedExperience = allExperience.sort((a, b) => a.data.order - b.data.order);
-
-const IconMap: Record<string, any> = { SpellCheck, Laptop, CreditCard, Terminal, Package };
 
 const colorClasses = {
   pink: { text: 'text-pink-400', borderHover: 'hover:border-pink-400/50', bgGlow: 'bg-pink-400/10', groupHoverText: 'group-hover:text-pink-400', bgDot: 'bg-pink-400/50' },
@@ -58,7 +56,7 @@ const colorClasses = {
 						View Logs //
 					</a>
 					<a href="#connect" class="font-mono text-sm border border-slate-700 text-slate-300 px-6 py-3 uppercase tracking-wider hover:border-lime-400 hover:text-lime-400 transition-colors flex items-center gap-2">
-						<Mail size={16} /> Connect
+						<Icon name="Mail" size={16} /> Connect
 					</a>
 				</div>
 			</div>
@@ -77,7 +75,6 @@ const colorClasses = {
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8">
 				{sortedProjects.map(project => {
 					const { title, url, typeHtml, icon, iconSize, glowSize, color, colSpan, comingSoon, isBeta, featured, description, tags } = project.data;
-					const Icon = IconMap[icon];
 					const c = colorClasses[color as keyof typeof colorClasses];
 					
 					return (
@@ -85,9 +82,9 @@ const colorClasses = {
 							<div class={`group border border-slate-800 bg-slate-900/50 p-8 ${c.borderHover} hover:-translate-y-1 active:scale-[0.98] transition-all duration-300 relative overflow-hidden h-full`}>
 								<div class={`absolute top-0 right-0 ${glowSize} ${c.bgGlow} rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500`}></div>
 								<div class={`font-mono ${c.text} mb-4 flex justify-between items-center`}>
-									<Icon size={iconSize} />
+									<Icon name={icon as any} size={iconSize} />
 									<span class="text-[10px] tracking-widest uppercase flex items-center gap-2">
-										<span><Fragment set:html={typeHtml} /></span> <ExternalLink size={14} />
+										<span><Fragment set:html={typeHtml} /></span> <Icon name="ExternalLink" size={14} />
 									</span>
 								</div>
 								<h3 class={`font-sans font-bold uppercase mb-4 text-slate-100 ${c.groupHoverText} transition-colors ${comingSoon || isBeta ? 'flex items-center gap-3' : ''} ${featured ? 'text-3xl' : 'text-2xl'}`}>
@@ -165,7 +162,7 @@ const colorClasses = {
 				<div class="scroll-fade-up opacity-0 translate-y-[20px] transition-all duration-700 ease-out md:col-span-2 mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
 					<div class="flex items-center gap-4">
 						<div class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center shrink-0">
-							<GraduationCap size={24} className="text-lime-400" />
+							<Icon name="GraduationCap" size={24} class="text-lime-400" />
 						</div>
 						<div>
 							<div class="font-mono text-lime-400 text-sm mb-1">May 2023</div>
@@ -176,7 +173,7 @@ const colorClasses = {
 
 					<div class="flex items-center gap-4">
 						<div class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center shrink-0">
-							<GraduationCap size={24} className="text-cyan-400" />
+							<Icon name="GraduationCap" size={24} class="text-cyan-400" />
 						</div>
 						<div>
 							<div class="font-mono text-cyan-400 text-sm mb-1">Oct 2020</div>
@@ -201,12 +198,12 @@ const colorClasses = {
 				</p>
 
 				<a href={resumeUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-mono text-sm bg-lime-400 text-black px-6 py-3 uppercase font-bold tracking-wider hover:bg-white focus-visible:bg-white outline-none transition-colors mb-12">
-					<FileText size={16} aria-hidden="true" /> Download Resume
+					<Icon name="FileText" size={16} /> Download Resume
 				</a>
 
 				<div class="space-y-6 mb-12">
 					<a href="mailto:akhildaphara@gmail.com" class="flex items-center gap-4 text-slate-300 hover:text-cyan-400 transition-colors group w-fit">
-						<Mail size={24} className="group-hover:scale-110 transition-transform" />
+						<Icon name="Mail" size={24} class="group-hover:scale-110 transition-transform" />
 						<span class="font-mono text-lg md:text-xl">akhildaphara@gmail.com</span>
 					</a>
 					<a href="https://linkedin.com/in/akhildaphara" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 text-slate-300 hover:text-lime-400 transition-colors group w-fit">
