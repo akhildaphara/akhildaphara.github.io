@@ -1,6 +1,6 @@
 ---
 title: "Monet"
-url: "https://monet-3d69d.web.app/"
+url: "https://tapmonet.com/"
 typeHtml: "<span class=\"lowercase font-bold\">i</span><span class=\"tracking-widest\">OS APP</span>"
 icon: "CreditCard"
 iconSize: 24
