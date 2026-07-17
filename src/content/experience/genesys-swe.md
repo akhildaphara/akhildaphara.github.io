@@ -1,10 +1,10 @@
 ---
 role: "Software Engineer"
 company: "Genesys, USA"
-date: "May 2023 — Present"
+date: "May 2023 — June 2026"
 color: "lime"
 tags: ["TypeScript", "Node.js", "AWS", "Java", "MCP"]
-order: 1
+order: 2
 bullets:
   - "Part of <span class=\"text-white\">Cursor AI</span> pilot to increase team productivity, successfully scaling the tool to 100% of the organization."
   - "Won internal hackathon prize for building a <span class=\"text-white\">Model Context Protocol (MCP) server</span> that integrated public APIs with IDEs and Amazon Bedrock."

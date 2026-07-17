@@ -10,5 +10,5 @@ colSpan: "sm:col-span-2 lg:col-span-2"
 description: "An interactive learning platform designed to demystify backend programming fundamentals through flashcards."
 tags: ["React", "Education"]
 isBeta: true
-order: 2
+order: 3
 ---

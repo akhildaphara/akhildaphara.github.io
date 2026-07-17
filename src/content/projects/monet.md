@@ -8,7 +8,8 @@ glowSize: "w-32 h-32"
 color: "lime"
 colSpan: "sm:col-span-2 lg:col-span-6"
 comingSoon: true
+featured: true
 description: "The mathematically perfect way to play the credit cards points game. Optimize your rewards with precision."
 tags: ["React", "Firebase", "Material UI"]
-order: 3
+order: 1
 ---
