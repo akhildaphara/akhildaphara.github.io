@@ -5,5 +5,6 @@ date: "June 2026 — Present"
 color: "lime"
 tags: ["TypeScript", "Node.js", "AWS", "Load and Scale Test"]
 order: 1
-bullets: []
+bullets:
+  - "Automating development workflow using <span class=\"text-white\">AI</span>."
 ---
